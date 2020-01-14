@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="en-US">
+  <id>tag:github.com,2008:/twitter/typeahead.js/commits/master</id>
+  <link type="text/html" rel="alternate" href="https://github.com/twitter/typeahead.js/commits/master"/>
+  <link type="application/atom+xml" rel="self" href="https://github.com/twitter/typeahead.js/commits/master.atom"/>
+  <title>Recent Commits to typeahead.js:master</title>
+  <updated>2015-04-27T04:02:14Z</updated>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/588440f66559714280628a4f9799f0c4eb880a4a</id>
+    <link type="text/html" rel="alternate" href="https://github.com/twitter/typeahead.js/commit/588440f66559714280628a4f9799f0c4eb880a4a"/>
+    <title>
+        0.11.1
+    </title>
+    <updated>2015-04-27T04:02:14Z</updated>
+    <media:thumbnail height="30" width="30" url="https://1.gravatar.com/avatar/a966cecf67369563c944f24c969110ba?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>jharding@twitter.com</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;0.11.1&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/e4d6fbfcde06c7ca8f844df1015e4d4eb129ee66</id>
+    <link type="text/html" rel="alternate" href="https://github.com/twitter/typeahead.js/commit/e4d6fbfcde06c7ca8f844df1015e4d4eb129ee66"/>
+    <title>
+        Fix `npm test`
+    </title>
+    <updated>2015-04-27T03:25:33Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars3.githubusercontent.com/u/10195800?s=30&amp;v=4"/>
+    <author>
+      <name>evverx</name>
+      <uri>https://github.com/evverx</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Fix `npm test`&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/33ab95374ebe87d910e89ef07010ae4751d1f15c</id>
+    <link type="text/html" rel="alternate" href="https://github.com/twitter/typeahead.js/commit/33ab95374ebe87d910e89ef07010ae4751d1f15c"/>
+    <title>
+        Update CHANGELOG for v0.11.1
+    </title>
+    <updated>2015-04-27T00:44:06Z</updated>
+    <media:thumbnail height="30" width="30" url="https://1.gravatar.com/avatar/a966cecf67369563c944f24c969110ba?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>jharding@twitter.com</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Update CHANGELOG for v0.11.1&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/e40ecd9356ad0a882fb80170314b8a220930f4a2</id>
+    <link type="text/html" rel="alternate" href="https://github.com/twitter/typeahead.js/commit/e40ecd9356ad0a882fb80170314b8a220930f4a2"/>
+    <title>
+        Merge pull request #1186 from jharding/970-null-destroy
+    </title>
+    <updated>2015-04-27T00:36:26Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars2.githubusercontent.com/u/314351?s=30&amp;v=4"/>
+    <author>
+      <name>jharding</name>
+      <uri>https://github.com/jharding</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #1186 from jharding/970-null-destroy
+
+Prevent reference errors after destroy&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/330f249428867f9353ecfa4d3997386390d07812</id>
+    <link type="text/html" rel="alternate" href="https://github.com/twitter/typeahead.js/commit/330f249428867f9353ecfa4d3997386390d07812"/>
+    <title>
+        Update docs
+    </title>
+    <updated>2015-04-27T00:33:05Z</updated>
+    <media:thumbnail height="30" width="30" url="https://1.gravatar.com/avatar/a966cecf67369563c944f24c969110ba?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>jharding@twitter.com</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Update docs&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/8d3e6de304486826ac47069cd2a2103c2f67897c</id>
+    <link type="text/html" rel="alternate" href="https://github.com/twitter/typeahead.js/commit/8d3e6de304486826ac47069cd2a2103c2f67897c"/>
+    <title>
+        Prevent reference errors after destroy
+    </title>
+    <updated>2015-04-26T23:58:44Z</updated>
+    <media:thumbnail height="30" width="30" url="https://1.gravatar.com/avatar/a966cecf67369563c944f24c969110ba?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>jharding@twitter.com</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Prevent reference errors after destroy&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/3bae269fafbc373c333a5c50f8db817ce43b6147</id>
+    <link type="text/html" rel="alternate" href="https://github.com/twitter/typeahead.js/commit/3bae269fafbc373c333a5c50f8db817ce43b6147"/>
+    <title>
+        Add example of capturing custom events to docs
+    </title>
+    <updated>2015-04-26T22:12:49Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars0.githubusercontent.com/u/3429673?s=30&amp;v=4"/>
+    <author>
+      <name>jlbooker</name>
+      <uri>https://github.com/jlbooker</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Add example of capturing custom events to docs&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/10c6cef40d0fe53c8b34c9c1ccaa4c7a93464b8e</id>
+    <link type="text/html" rel="alternate" href="https://github.com/twitter/typeahead.js/commit/10c6cef40d0fe53c8b34c9c1ccaa4c7a93464b8e"/>
+    <title>
+        Merge pull request #1184 from jharding/1181-prepare-prefetch
+    </title>
+    <updated>2015-04-26T22:03:54Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars2.githubusercontent.com/u/314351?s=30&amp;v=4"/>
+    <author>
+      <name>jharding</name>
+      <uri>https://github.com/jharding</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #1184 from jharding/1181-prepare-prefetch
+
+Add prepare to prefetch&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/cb40dd3d2457989e3eb7d0e8a8453d89b8eae81d</id>
+    <link type="text/html" rel="alternate" href="https://github.com/twitter/typeahead.js/commit/cb40dd3d2457989e3eb7d0e8a8453d89b8eae81d"/>
+    <title>
+        Merge pull request #1183 from jharding/1110-max-size-reached
+    </title>
+    <updated>2015-04-26T11:42:53Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars2.githubusercontent.com/u/314351?s=30&amp;v=4"/>
+    <author>
+      <name>jharding</name>
+      <uri>https://github.com/jharding</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #1183 from jharding/1110-max-size-reached
+
+Handle local storage quota exceeded exception&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/7e2262020f9a29e20b2b86886970c4c07a249373</id>
+    <link type="text/html" rel="alternate" href="https://github.com/twitter/typeahead.js/commit/7e2262020f9a29e20b2b86886970c4c07a249373"/>
+    <title>
+        Add prepare to prefetch
+    </title>
+    <updated>2015-04-26T11:39:09Z</updated>
+    <media:thumbnail height="30" width="30" url="https://1.gravatar.com/avatar/a966cecf67369563c944f24c969110ba?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>jharding@twitter.com</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Add prepare to prefetch&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/03e8eaf06956305fd5051f379a04a7917852ed0b</id>
+    <link type="text/html" rel="alternate" href="https://github.com/twitter/typeahead.js/commit/03e8eaf06956305fd5051f379a04a7917852ed0b"/>
+    <title>
+        Handle local storage quota exceeded exception
+    </title>
+    <updated>2015-04-26T11:17:15Z</updated>
+    <media:thumbnail height="30" width="30" url="https://1.gravatar.com/avatar/a966cecf67369563c944f24c969110ba?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>jharding@twitter.com</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Handle local storage quota exceeded exception&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/97eb7afe65a9e062254c89fb25f40fdcab4750e0</id>
+    <link type="text/html" rel="alternate" href="https://github.com/twitter/typeahead.js/commit/97eb7afe65a9e062254c89fb25f40fdcab4750e0"/>
+    <title>
+        Merge pull request #1182 from jharding/964-escape-html-chars
+    </title>
+    <updated>2015-04-26T10:26:52Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars2.githubusercontent.com/u/314351?s=30&amp;v=4"/>
+    <author>
+      <name>jharding</name>
+      <uri>https://github.com/jharding</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #1182 from jharding/964-escape-html-chars
+
+Escape html chars from display value when using default template&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/9a74298c93d3847124d287849dda9f152ff263c9</id>
+    <link type="text/html" rel="alternate" href="https://github.com/twitter/typeahead.js/commit/9a74298c93d3847124d287849dda9f152ff263c9"/>
+    <title>
+        Escape html chars from display value when using default template
+    </title>
+    <updated>2015-04-26T09:35:11Z</updated>
+    <media:thumbnail height="30" width="30" url="https://1.gravatar.com/avatar/a966cecf67369563c944f24c969110ba?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>jharding@twitter.com</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Escape html chars from display value when using default template&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/250a5dc4848dc86ceaf6e6a904f719b6a3ecc9b8</id>
+    <link type="text/html" rel="alternate" href="https://github.com/twitter/typeahead.js/commit/250a5dc4848dc86ceaf6e6a904f719b6a3ecc9b8"/>
+    <title>
+        Array parameter support in object tokenizers
+    </title>
+    <updated>2015-04-26T08:28:24Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars0.githubusercontent.com/u/56369?s=30&amp;v=4"/>
+    <author>
+      <name>gintsmurans</name>
+      <uri>https://github.com/gintsmurans</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Array parameter support in object tokenizers
+
+Useful for passing dynamic keys, or like in my case for an Bloodhound
+wrapper.&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/4ac17771cbaebb8f04a17eb355c462b4b72038eb</id>
+    <link type="text/html" rel="alternate" href="https://github.com/twitter/typeahead.js/commit/4ac17771cbaebb8f04a17eb355c462b4b72038eb"/>
+    <title>
+        Merge pull request #1179 from jharding/1143-list-jquery-dependency
+    </title>
+    <updated>2015-04-26T07:41:32Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars2.githubusercontent.com/u/314351?s=30&amp;v=4"/>
+    <author>
+      <name>jharding</name>
+      <uri>https://github.com/jharding</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #1179 from jharding/1143-list-jquery-dependency
+
+List jquery as dependency in package.json. Fixes #1143&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/2984b5b64f3ed27a4e4fef8beeae7f00d1bcabe7</id>
+    <link type="text/html" rel="alternate" href="https://github.com/twitter/typeahead.js/commit/2984b5b64f3ed27a4e4fef8beeae7f00d1bcabe7"/>
+    <title>
+        Merge branch &#39;kyaukyuai-master&#39; into integration-0.11.1
+    </title>
+    <updated>2015-04-26T07:40:49Z</updated>
+    <media:thumbnail height="30" width="30" url="https://1.gravatar.com/avatar/a966cecf67369563c944f24c969110ba?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>jharding@twitter.com</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge branch &amp;#39;kyaukyuai-master&amp;#39; into integration-0.11.1&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/3e2ab5c84e312336cd65ac86d8bbe2637c1e4b38</id>
+    <link type="text/html" rel="alternate" href="https://github.com/twitter/typeahead.js/commit/3e2ab5c84e312336cd65ac86d8bbe2637c1e4b38"/>
+    <title>
+        Clean up pull request
+    </title>
+    <updated>2015-04-26T07:37:52Z</updated>
+    <media:thumbnail height="30" width="30" url="https://1.gravatar.com/avatar/a966cecf67369563c944f24c969110ba?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>jharding@twitter.com</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Clean up pull request&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/07fbc6b6a7db734758c4124ad00f27e05c4faeeb</id>
+    <link type="text/html" rel="alternate" href="https://github.com/twitter/typeahead.js/commit/07fbc6b6a7db734758c4124ad00f27e05c4faeeb"/>
+    <title>
+        List jquery as dependency in package.json. Fixes #1143
+    </title>
+    <updated>2015-04-26T05:15:46Z</updated>
+    <media:thumbnail height="30" width="30" url="https://1.gravatar.com/avatar/a966cecf67369563c944f24c969110ba?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>jharding@twitter.com</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;List jquery as dependency in package.json. Fixes #1143&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/c9d6c5c746051e5ab668ecf16459478c351a944e</id>
+    <link type="text/html" rel="alternate" href="https://github.com/twitter/typeahead.js/commit/c9d6c5c746051e5ab668ecf16459478c351a944e"/>
+    <title>
+        Merge pull request #1118 from IsaacHaze/master
+    </title>
+    <updated>2015-04-25T12:17:02Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars2.githubusercontent.com/u/314351?s=30&amp;v=4"/>
+    <author>
+      <name>jharding</name>
+      <uri>https://github.com/jharding</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #1118 from IsaacHaze/master
+
+Fixes Jasmine link in README.md&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/5f3787a2e1aa3634a35ef2dc179b98c8fc29079f</id>
+    <link type="text/html" rel="alternate" href="https://github.com/twitter/typeahead.js/commit/5f3787a2e1aa3634a35ef2dc179b98c8fc29079f"/>
+    <title>
+        Merge pull request #1096 from Soubkia/master
+    </title>
+    <updated>2015-04-25T12:15:35Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars2.githubusercontent.com/u/314351?s=30&amp;v=4"/>
+    <author>
+      <name>jharding</name>
+      <uri>https://github.com/jharding</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #1096 from Soubkia/master
+
+fix typo in README&lt;/pre&gt;
+    </content>
+  </entry>
+</feed>

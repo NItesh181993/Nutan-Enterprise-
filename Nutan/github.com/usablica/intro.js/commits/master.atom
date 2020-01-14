@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="en-US">
+  <id>tag:github.com,2008:/usablica/intro.js/commits/master</id>
+  <link type="text/html" rel="alternate" href="https://github.com/usablica/intro.js/commits/master"/>
+  <link type="application/atom+xml" rel="self" href="https://github.com/usablica/intro.js/commits/master.atom"/>
+  <title>Recent Commits to intro.js:master</title>
+  <updated>2019-05-20T13:39:55Z</updated>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/d3059b0edd8ca7d020fe9d25ed6835f694ebae6f</id>
+    <link type="text/html" rel="alternate" href="https://github.com/usablica/intro.js/commit/d3059b0edd8ca7d020fe9d25ed6835f694ebae6f"/>
+    <title>
+        Merge pull request #927 from kirillovarchi/master
+    </title>
+    <updated>2019-05-20T13:39:55Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars0.githubusercontent.com/u/1410985?s=30&amp;v=4"/>
+    <author>
+      <name>bozdoz</name>
+      <uri>https://github.com/bozdoz</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #927 from kirillovarchi/master
+
+Fixed calculating tooltip bottom position&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/56a8f5ee453162944d7a49c6c94223a0c3cbacce</id>
+    <link type="text/html" rel="alternate" href="https://github.com/usablica/intro.js/commit/56a8f5ee453162944d7a49c6c94223a0c3cbacce"/>
+    <title>
+        Fixed calculating tooltip bottom position
+    </title>
+    <updated>2019-05-20T12:26:46Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars0.githubusercontent.com/u/7557497?s=30&amp;v=4"/>
+    <author>
+      <name>kirillovarchi</name>
+      <uri>https://github.com/kirillovarchi</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Fixed calculating tooltip bottom position&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/b46bbcd8af46be2ae3b43aba850334b12ff03cdb</id>
+    <link type="text/html" rel="alternate" href="https://github.com/usablica/intro.js/commit/b46bbcd8af46be2ae3b43aba850334b12ff03cdb"/>
+    <title>
+        v2.9.3 - fix to skip and done, exiting intro; resolves #832 and resol…
+    </title>
+    <updated>2018-04-25T12:08:43Z</updated>
+    <media:thumbnail height="30" width="30" url="https://2.gravatar.com/avatar/8b31dc588b0d8c50dcd5b3fc25d7ed60?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>howaboutben@gmail.com</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;v2.9.3 - fix to skip and done, exiting intro; resolves #832 and resolves #843 and resolves #829&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/918b68703fc0b05e7dab1dc7828ef41ebec8d0cc</id>
+    <link type="text/html" rel="alternate" href="https://github.com/usablica/intro.js/commit/918b68703fc0b05e7dab1dc7828ef41ebec8d0cc"/>
+    <title>
+        v2.9.2 - resolves #847; added minified directory to npm
+    </title>
+    <updated>2018-04-25T02:28:01Z</updated>
+    <media:thumbnail height="30" width="30" url="https://2.gravatar.com/avatar/8b31dc588b0d8c50dcd5b3fc25d7ed60?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>howaboutben@gmail.com</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;v2.9.2 - resolves #847; added minified directory to npm&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/b58342f5a6c081f1e2a1f1c6d18fa867b9ecef05</id>
+    <link type="text/html" rel="alternate" href="https://github.com/usablica/intro.js/commit/b58342f5a6c081f1e2a1f1c6d18fa867b9ecef05"/>
+    <title>
+        v2.9.1 - resolves #846
+    </title>
+    <updated>2018-04-24T15:43:29Z</updated>
+    <media:thumbnail height="30" width="30" url="https://2.gravatar.com/avatar/8b31dc588b0d8c50dcd5b3fc25d7ed60?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>howaboutben@gmail.com</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;v2.9.1 - resolves #846&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/8414449fd903be471bc31b6c0cdfd3073e8c75fd</id>
+    <link type="text/html" rel="alternate" href="https://github.com/usablica/intro.js/commit/8414449fd903be471bc31b6c0cdfd3073e8c75fd"/>
+    <title>
+        Merge branch &#39;master&#39; of github.com:usablica/intro.js
+    </title>
+    <updated>2018-04-23T14:38:29Z</updated>
+    <media:thumbnail height="30" width="30" url="https://2.gravatar.com/avatar/8b31dc588b0d8c50dcd5b3fc25d7ed60?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>howaboutben@gmail.com</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge branch &amp;#39;master&amp;#39; of github.com:usablica/intro.js&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/29ced87b0e4ab30e1e80341722cff5bfa9dc4d5c</id>
+    <link type="text/html" rel="alternate" href="https://github.com/usablica/intro.js/commit/29ced87b0e4ab30e1e80341722cff5bfa9dc4d5c"/>
+    <title>
+        v2.9.0 - Updating changelog; update version to v2.9.0; added release …
+    </title>
+    <updated>2018-04-23T14:38:18Z</updated>
+    <media:thumbnail height="30" width="30" url="https://2.gravatar.com/avatar/8b31dc588b0d8c50dcd5b3fc25d7ed60?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>howaboutben@gmail.com</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;v2.9.0 - Updating changelog; update version to v2.9.0; added release bash script for automating releases (WIP)&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/632c4e66ef83c938e0c131338b381391f2d476d4</id>
+    <link type="text/html" rel="alternate" href="https://github.com/usablica/intro.js/commit/632c4e66ef83c938e0c131338b381391f2d476d4"/>
+    <title>
+        Merge pull request #830 from zoheiry/patch-1
+    </title>
+    <updated>2018-03-13T17:47:51Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars0.githubusercontent.com/u/1410985?s=30&amp;v=4"/>
+    <author>
+      <name>bozdoz</name>
+      <uri>https://github.com/bozdoz</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #830 from zoheiry/patch-1
+
+Fix position of left arrow in modern theme&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/ac8faa3b7382d3b4e1e7b4ac5e67e3480de6f104</id>
+    <link type="text/html" rel="alternate" href="https://github.com/usablica/intro.js/commit/ac8faa3b7382d3b4e1e7b4ac5e67e3480de6f104"/>
+    <title>
+        Fix position of left arrow arrow in modern theme
+    </title>
+    <updated>2018-03-13T16:03:18Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars1.githubusercontent.com/u/3513470?s=30&amp;v=4"/>
+    <author>
+      <name>zoheiry</name>
+      <uri>https://github.com/zoheiry</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Fix position of left arrow arrow in modern theme&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/19b779ab1c0acbecc36caf7f2fe4542883ea44dc</id>
+    <link type="text/html" rel="alternate" href="https://github.com/usablica/intro.js/commit/19b779ab1c0acbecc36caf7f2fe4542883ea44dc"/>
+    <title>
+        added link to build status in README
+    </title>
+    <updated>2018-02-24T00:26:26Z</updated>
+    <media:thumbnail height="30" width="30" url="https://2.gravatar.com/avatar/8b31dc588b0d8c50dcd5b3fc25d7ed60?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>howaboutben@gmail.com</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;added link to build status in README&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/5fe318653267b9738a2a185402b566cc90aa37ac</id>
+    <link type="text/html" rel="alternate" href="https://github.com/usablica/intro.js/commit/5fe318653267b9738a2a185402b566cc90aa37ac"/>
+    <title>
+        fix to travis issue; fix to minified files;
+    </title>
+    <updated>2018-02-24T00:24:02Z</updated>
+    <media:thumbnail height="30" width="30" url="https://2.gravatar.com/avatar/8b31dc588b0d8c50dcd5b3fc25d7ed60?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>howaboutben@gmail.com</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;fix to travis issue; fix to minified files;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/c4de80d6d326b266a6960cfa132ac1a529d85538</id>
+    <link type="text/html" rel="alternate" href="https://github.com/usablica/intro.js/commit/c4de80d6d326b266a6960cfa132ac1a529d85538"/>
+    <title>
+        Merge pull request #517 from labithiotis/master
+    </title>
+    <updated>2018-02-24T00:14:20Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars0.githubusercontent.com/u/1410985?s=30&amp;v=4"/>
+    <author>
+      <name>bozdoz</name>
+      <uri>https://github.com/bozdoz</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #517 from labithiotis/master
+
+Added callback for onskip event (clicking skip inside tooltip container)&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/5d74f6a94d2b8c9d0e3afc7164b9968208482b87</id>
+    <link type="text/html" rel="alternate" href="https://github.com/usablica/intro.js/commit/5d74f6a94d2b8c9d0e3afc7164b9968208482b87"/>
+    <title>
+        Merge branch &#39;nelsonwong1012-fix_keyboard_a11y_step_bullets&#39;
+    </title>
+    <updated>2018-02-23T23:59:50Z</updated>
+    <media:thumbnail height="30" width="30" url="https://2.gravatar.com/avatar/8b31dc588b0d8c50dcd5b3fc25d7ed60?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>howaboutben@gmail.com</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge branch &amp;#39;nelsonwong1012-fix_keyboard_a11y_step_bullets&amp;#39;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/47cc13f64e88243ee4270c146efa0af2050dbba3</id>
+    <link type="text/html" rel="alternate" href="https://github.com/usablica/intro.js/commit/47cc13f64e88243ee4270c146efa0af2050dbba3"/>
+    <title>
+        Merge branch &#39;fix_keyboard_a11y_step_bullets&#39; of https://github.com/n…
+    </title>
+    <updated>2018-02-23T23:59:18Z</updated>
+    <media:thumbnail height="30" width="30" url="https://2.gravatar.com/avatar/8b31dc588b0d8c50dcd5b3fc25d7ed60?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>howaboutben@gmail.com</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge branch &amp;#39;fix_keyboard_a11y_step_bullets&amp;#39; of https://github.com/nelsonwong1012/intro.js into nelsonwong1012-fix_keyboard_a11y_step_bullets
+
+Conflicts:
+	intro.js&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/bb0968c1f9deb8d628b73c9951e2f836cfcb242f</id>
+    <link type="text/html" rel="alternate" href="https://github.com/usablica/intro.js/commit/bb0968c1f9deb8d628b73c9951e2f836cfcb242f"/>
+    <title>
+        Merge branch &#39;cdownie-master&#39;
+    </title>
+    <updated>2018-02-23T23:50:15Z</updated>
+    <media:thumbnail height="30" width="30" url="https://2.gravatar.com/avatar/8b31dc588b0d8c50dcd5b3fc25d7ed60?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>howaboutben@gmail.com</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge branch &amp;#39;cdownie-master&amp;#39;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/6983efc38b8c1adae844e627093140cb6b51b866</id>
+    <link type="text/html" rel="alternate" href="https://github.com/usablica/intro.js/commit/6983efc38b8c1adae844e627093140cb6b51b866"/>
+    <title>
+        Merge branch &#39;master&#39; of https://github.com/cdownie/intro.js into cdo…
+    </title>
+    <updated>2018-02-23T23:50:02Z</updated>
+    <media:thumbnail height="30" width="30" url="https://2.gravatar.com/avatar/8b31dc588b0d8c50dcd5b3fc25d7ed60?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>howaboutben@gmail.com</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge branch &amp;#39;master&amp;#39; of https://github.com/cdownie/intro.js into cdownie-master
+
+Conflicts:
+	intro.js&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/0a086572b4f8eee96fd5720e575573b0a5105b80</id>
+    <link type="text/html" rel="alternate" href="https://github.com/usablica/intro.js/commit/0a086572b4f8eee96fd5720e575573b0a5105b80"/>
+    <title>
+        moved GITHUB files to .github; added npm minify and simplified build …
+    </title>
+    <updated>2018-02-23T22:08:56Z</updated>
+    <media:thumbnail height="30" width="30" url="https://2.gravatar.com/avatar/8b31dc588b0d8c50dcd5b3fc25d7ed60?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>howaboutben@gmail.com</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;moved GITHUB files to .github; added npm minify and simplified build process with npm run minify;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/ef202f0c66d439f503357da5d885d11e2b033beb</id>
+    <link type="text/html" rel="alternate" href="https://github.com/usablica/intro.js/commit/ef202f0c66d439f503357da5d885d11e2b033beb"/>
+    <title>
+        Merge pull request #803 from usablica/events-and-instances
+    </title>
+    <updated>2018-02-23T21:48:08Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars0.githubusercontent.com/u/1410985?s=30&amp;v=4"/>
+    <author>
+      <name>bozdoz</name>
+      <uri>https://github.com/bozdoz</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #803 from usablica/events-and-instances
+
+reliable events and instances&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/2db21877e4716c3c377947d32407412886aff68e</id>
+    <link type="text/html" rel="alternate" href="https://github.com/usablica/intro.js/commit/2db21877e4716c3c377947d32407412886aff68e"/>
+    <title>
+        Merge branch &#39;master&#39; into events-and-instances
+    </title>
+    <updated>2018-02-23T21:47:45Z</updated>
+    <media:thumbnail height="30" width="30" url="https://2.gravatar.com/avatar/8b31dc588b0d8c50dcd5b3fc25d7ed60?d=https%3A%2F%2Fgithub.githubassets.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=g&amp;s=30"/>
+    <author>
+      <name></name>
+      <email>howaboutben@gmail.com</email>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge branch &amp;#39;master&amp;#39; into events-and-instances
+
+Conflicts:
+	intro.js&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/e965a0da5108a981f7d91b494f1515e3fc420e89</id>
+    <link type="text/html" rel="alternate" href="https://github.com/usablica/intro.js/commit/e965a0da5108a981f7d91b494f1515e3fc420e89"/>
+    <title>
+        Merge pull request #801 from usablica/fix-scroll-elements
+    </title>
+    <updated>2018-02-23T21:44:44Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars0.githubusercontent.com/u/1410985?s=30&amp;v=4"/>
+    <author>
+      <name>bozdoz</name>
+      <uri>https://github.com/bozdoz</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #801 from usablica/fix-scroll-elements
+
+Scroll parent element to targetElement; resolves #210; resolves #350; resolves #373&lt;/pre&gt;
+    </content>
+  </entry>
+</feed>
