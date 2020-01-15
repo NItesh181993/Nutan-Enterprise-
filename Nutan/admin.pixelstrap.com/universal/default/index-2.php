@@ -1,3 +1,12 @@
+<?php
+
+session_start();
+include_once("config.php");
+    if(!isset($_SESSION["uid"]))
+{
+    header("location:login.php");
+}
+?>
 <html lang="en"><!-- Mirrored from admin.pixelstrap.com/universal/default/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Dec 2019 10:58:11 GMT -->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
