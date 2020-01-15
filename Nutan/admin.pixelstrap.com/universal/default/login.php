@@ -157,7 +157,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <h4>LOGIN</h4>
                             <h6>Enter your Username and Password For Login</h6>
                             <div class="card mt-4 p-4 mb-0">
-                                <form class="theme-form" method="post">
+                                <form class="theme-form" method="post" action="login_process.php">
                                     <div class="form-group">
                                         <label class="col-form-label pt-0">User Name</label>
                                         <input type="text" name="username" class="form-control">
