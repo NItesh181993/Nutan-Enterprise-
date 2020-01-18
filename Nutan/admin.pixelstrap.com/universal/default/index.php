@@ -155,7 +155,7 @@
                     <a href="register.php" class="sidebar-header">
                         <i class="icon-desktop"></i><span>Create User</span>
                     </a>
-                    <a href="#" class="sidebar-header">
+                    <a href="New_recipes.php" class="sidebar-header">
                         <i class="icon-desktop"></i><span>List of Recipes</span>
                     </a>
             <div class="sidebar-widget text-center">
