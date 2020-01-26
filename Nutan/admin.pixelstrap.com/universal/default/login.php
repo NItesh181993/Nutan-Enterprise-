@@ -71,11 +71,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
         
         // Close statement
-        mysqli_stmt_close($stmt);
+        // mysqli_stmt_close($stmt);
     }
     
     // Close connection
-    mysqli_close($link);
+    //mysqli_close($link);
  
 ?>
 
@@ -90,8 +90,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta name="description" content="universal admin is super flexible, powerful, clean & modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, universal admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
-    <link rel="icon" href="../assets/images/nutunlogo.jpg" type="image/x-icon" />
-    <link rel="shortcut icon" href="../assets/images/nutunlogo.jpg" type="image/x-icon" />
+    <link rel="icon" href="../assets/images/Nlogo.jpg" type="image/x-icon" />
+    <link rel="shortcut icon" href="../assets/images/Nlogo.jpg" type="image/x-icon" />
     <title>Nutan Enterprise</title>
 
     <!--Google font-->
@@ -138,7 +138,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <div class="col-md-4 p-0">
                     <div class="auth-innerleft">
                         <div class="text-center">
-                            <img src="../assets/images/nutun_img.png" class="logo-login" alt="">
+                            <img src="../assets/images/Nlogo.jpg" class="logo-login" alt="">
                             <!-- <hr> -->
                             <!-- <div class="social-media">
                                 <ul class="list-inline">
