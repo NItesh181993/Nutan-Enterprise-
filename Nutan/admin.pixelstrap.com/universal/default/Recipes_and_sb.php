@@ -1208,7 +1208,7 @@
                                                         <label for="radio30"></label>
                                                     </div>
                                                     <div class="media-body">
-                                                        <h6 class="mt-0 mega-title-badge">COD<span class="badge badge-primary pull-right digits">50 INR</span></h6>
+                                                        <h6 class="mt-0 mega-title-badge">Recipe 1<span class="badge badge-primary pull-right digits">608 INR</span></h6>
                                                         <p>Estimated 5 Day Shipping ( Duties end tax may be due upon delivery )</p>
                                                     </div>
                                                 </div>
