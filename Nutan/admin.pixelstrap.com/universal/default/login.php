@@ -90,9 +90,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta name="description" content="universal admin is super flexible, powerful, clean & modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, universal admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
-    <link rel="icon" href="../assets/images/Nlogo.jpg" type="image/x-icon" />
-    <link rel="shortcut icon" href="../assets/images/Nlogo.jpg" type="image/x-icon" />
-    <title>Nutan Enterprise</title>
+    <link rel="icon" href="../assets/images/Nlogo.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="../assets/images/Nlogo.png" type="image/x-icon" />
+    <title>Login</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
@@ -138,7 +138,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <div class="col-md-4 p-0">
                     <div class="auth-innerleft">
                         <div class="text-center">
-                            <img src="../assets/images/Nlogo.jpg" class="logo-login" alt="">
+                            <img src="../assets/images/nutunlogo.png" class="logo-login" alt="">
                             <!-- <hr> -->
                             <!-- <div class="social-media">
                                 <ul class="list-inline">

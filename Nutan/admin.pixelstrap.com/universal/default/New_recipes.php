@@ -9,9 +9,9 @@
     <meta name="description" content="universal admin is super flexible, powerful, clean & modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, universal admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
-    <link rel="icon" href="../assets/images/Nlogo.jpg" type="image/x-icon"/>
-    <link rel="shortcut icon" href="../assets/images/Nlogo.jpg" type="image/x-icon"/>
-    <title>Nutun Enterprises</title>
+    <link rel="icon" href="../assets/images/Nlogo.png" type="image/x-icon"/>
+    <link rel="shortcut icon" href="../assets/images/Nlogo.png" type="image/x-icon"/>
+    <title>List of recipes</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
@@ -64,19 +64,19 @@
         <div class="main-header-left">
             <div class="logo-wrapper">
                 <a href="index.php">
-                    <img src="../assets/images/logo_of_nutun.jpg" class="image-dark" alt=""/>
+                    <img src="../assets/images/logo_of_nutun.png" class="image-dark" alt=""/>
                 </a>
             </div>
         </div>
         <div class="main-header-right row">
-            <div class="mobile-sidebar">
+            <!-- <div class="mobile-sidebar">
                 <div class="media-body text-right switch-sm">
                     <label class="switch">
                         <input type="checkbox" id="sidebar-toggle" checked>
                         <span class="switch-state"></span>
                     </label>
                 </div>
-            </div>
+            </div> -->
             <div class="nav-right col">
                 <ul class="nav-menus">
                     <li>
@@ -229,7 +229,7 @@
                     <a href="New_recipes.php" class="sidebar-header">
                         <i class="icon-desktop"></i><span>List of Recipes</span>
                     </a>
-                    <a href="#" class="sidebar-header">
+                    <a href="Recipes_and_sb.php" class="sidebar-header">
                         <i class="icon-desktop"></i><span>BOQ</span>
                     </a>
             <div class="sidebar-widget text-center">

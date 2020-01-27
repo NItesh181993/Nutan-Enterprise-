@@ -15,8 +15,8 @@
     <meta name="description" content="universal admin is super flexible, powerful, clean & modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, universal admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
-    <link rel="icon" href="../assets/images/Nlogo.jpg" type="image/x-icon"/>
-    <link rel="shortcut icon" href="../assets/images/Nlogo.jpg" type="image/x-icon"/>
+    <link rel="icon" href="../assets/images/Nlogo.png" type="image/x-icon"/>
+    <link rel="shortcut icon" href="../assets/images/Nlogo.png" type="image/x-icon"/>
     <title>Nutan Enterprises</title>
 
     <!--Google font-->
@@ -73,7 +73,7 @@
         <div class="main-header-left">
             <div class="logo-wrapper">
                 <a href="index.php">
-                    <img src="../assets/images/logo_of_nutun.jpg" class="image-dark" alt=""/>
+                    <img src="../assets/images/logo_of_nutun.png" class="image-dark" alt=""/>
                 </a>
             </div>
         </div>
@@ -158,7 +158,7 @@
                     <a href="New_recipes.php" class="sidebar-header">
                         <i class="icon-desktop"></i><span>List of Recipes</span>
                     </a>
-                    <a href="#" class="sidebar-header">
+                    <a href="Recipes_and_sb.php" class="sidebar-header">
                         <i class="icon-desktop"></i><span>BOQ</span>
                     </a>
             <div class="sidebar-widget text-center">

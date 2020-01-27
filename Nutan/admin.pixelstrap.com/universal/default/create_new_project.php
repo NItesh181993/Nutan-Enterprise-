@@ -11,10 +11,10 @@
     <meta name="description" content="universal admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, universal admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
-    <link rel="icon" href="../assets/images/Nlogo.jpg" type="image/x-icon">
-    <link rel="shortcut icon" href="../assets/images/Nlogo.jpg" type="image/x-icon">
+    <link rel="icon" href="../assets/images/Nlogo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/images/Nlogo.png" type="image/x-icon">
     <script type="text/javascript"></script>
-    <title>Nutan Enterprises</title>
+    <title>New Project</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
@@ -66,7 +66,7 @@
         <div class="main-header-left">
             <div class="logo-wrapper">
                 <a href="index-2.php">
-                    <img src="../assets/images/logo_of_nutun.jpg" class="image-dark" alt="">
+                    <img src="../assets/images/logo_of_nutun.png" class="image-dark" alt="">
                     <!-- <img src="../assets/images/logo-light-dark-layout.png" class="image-light" alt=""> -->
                 </a>
             </div>
@@ -150,10 +150,10 @@
                     <a href="register.php" class="sidebar-header">
                         <i class="icon-desktop"></i><span>Create User</span>
                     </a>
-                    <a href="#" class="sidebar-header">
+                    <a href="New_recipes.php" class="sidebar-header">
                         <i class="icon-desktop"></i><span>List of Recipes</span>
                     </a>
-                    <a href="#" class="sidebar-header">
+                    <a href="Recipes_and_sb.php" class="sidebar-header">
                         <i class="icon-desktop"></i><span>BOQ</span>
                     </a>
             <div class="sidebar-widget text-center">
