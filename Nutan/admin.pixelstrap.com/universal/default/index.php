@@ -1,10 +1,16 @@
 <?php
-             session_start();
-             include_once('config.php');
-             $query="SELECT * FROM project";
+session_start();
+// Check if the user is already logged in, if yes then redirect him to welcome page
+     if(!isset($_SESSION["loggedin"])){
+       header("location: login.php");
+       exit;
+     }
+               include_once('config.php');
+             $query= "SELECT * FROM  project";
              $result=mysqli_query($link,$query);
-             ?>
+             
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <!-- Mirrored from admin.pixelstrap.com/universal/default/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Dec 2019 10:51:20 GMT -->
@@ -17,6 +23,8 @@
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="../assets/images/Nlogo.png" type="image/x-icon"/>
     <link rel="shortcut icon" href="../assets/images/Nlogo.png" type="image/x-icon"/>
+    <!-- <link rel="icon" href="../assets/images/nutunlogo.jpg" type="image/x-icon"/>
+    <link rel="shortcut icon" href="../assets/images/nutunlogo.jpg" type="image/x-icon"/> -->
     <title>Nutan Enterprises</title>
 
     <!--Google font-->
@@ -28,6 +36,7 @@
 
     <!-- ico-font -->
     <link rel="stylesheet" type="text/css" href="../assets/css/icofont.css">
+
 
     <!-- Themify icon -->
     <link rel="stylesheet" type="text/css" href="../assets/css/themify.css">
@@ -74,6 +83,7 @@
             <div class="logo-wrapper">
                 <a href="index.php">
                     <img src="../assets/images/logo_of_nutun.png" class="image-dark" alt=""/>
+                    <!-- <img src="../assets/images/final_logo1.jpg" class="image-dark" alt=""/> -->
                 </a>
             </div>
         </div>
@@ -95,38 +105,20 @@
                             <img class="align-self-center pull-right mr-2" src="../assets/images/dashboard/user.png" alt="header-user"/>
                             <div class="media-body">
                                 <h6 class="m-0 txt-dark f-16">
-                                    My Account
+                                    <?php echo $_SESSION['username']; ?>
                                     <i class="fa fa-angle-down pull-right ml-2"></i>
                                 </h6>
                             </div>
                         </div>
                         <ul class="profile-dropdown onhover-show-div p-20">
                             <li>
-                                <a href="#">
+                                <a href="reset-password.php">
                                     <i class="icon-user"></i>
                                     Edit Profile
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    <i class="icon-email"></i>
-                                    Inbox
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="icon-check-box"></i>
-                                    Task
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="icon-comments"></i>
-                                    Chat
-                                </a>
-                            </li>
-                            <li>
-                                <a href="Logout.php">
+                                <a href="logout.php">
                                     <i class="icon-power-off"></i>
                                     Logout
                                 </a>
@@ -152,14 +144,13 @@
                     <a href="Create_project.php" class="sidebar-header">
                         <i class="icon-desktop"></i><span>Create New Project</span>
                     </a>
-                    <a href="register.php" class="sidebar-header">
-                        <i class="icon-desktop"></i><span>Create User</span>
-                    </a>
-                    <a href="New_recipes.php" class="sidebar-header">
-                        <i class="icon-desktop"></i><span>List of Recipes</span>
+                    <a href="add_item.php" class="sidebar-header">
+                        <i class="icon-desktop"></i><span>Add Recipes</span>
                     </a>
                     <a href="Recipes_and_sb.php" class="sidebar-header">
                         <i class="icon-desktop"></i><span>BOQ</span>
+                    <a href="add_product.php" class="sidebar-header">
+                    <i class="icon-desktop"></i><span>Add prodect</span>
                     </a>
             <div class="sidebar-widget text-center">
                 <div class="sidebar-widget-top">
@@ -175,8 +166,6 @@
             </div>
         </div>
         
-        <!--Page Sidebar Ends-->
-        <!--Page Sidebar Ends-->
 
 <!-- page Body with CSS -->
 
@@ -231,7 +220,7 @@
                 <tr>
                 <th width="6%">Sr No.</th>
                 <th width="65%"><center>Project List</center></th>
-                <th width="3%"><center>Date</center></th>
+                <th width="4%"><center>Date</center></th>
                 <th><center>Action</center></th>
                 </tr>
                 <?php
@@ -244,12 +233,15 @@
                 <td><?php echo $row['project_name'];?></td>
                 <td><?php echo $row['date'];?></td>
                 <td>
-                    <a href="edit_item.php?id=<?php echo $row['id'];?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add Recipe" style="padding: 7px;">
+                    <a href="add_item.php?id=<?php echo $row['id'];?>" name="add" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add Recipe" style="padding: 7px;">
                         <i class="fa fa-plus"></i></a>
-                    <!-- <input type="submit" class="button" value="Add"  onclick="window.location.href='edit_item.php?id='"/>
-                    <input type="submit" class="button" value="View" onclick="window.location.href='view_project.php'"/>
-                    <input type="submit" class="button" value="Edit">
-                    <input type="submit" class="button" value="Delete"> -->
+                           <a href="edit_item.php?id=<?php echo $row['id'];?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="edit Recipe" style="padding: 7px;">
+                        <i class="fa fa-edit"></i></a>   
+                        <a href="delete.php?id=<?php echo $row['id'];?>"onclick="return confirm('Are you sure to delete?')"class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Delete project" style="padding: 7px;">
+                        <i class="fa fa-trash"></i></a>
+                        <a href="view_project.php?id=<?php echo $row['id'];?>?project_name=<?php echo $row['project_name'];?>?project_description=<?php echo $row['project_description'];?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View details" style="padding: 7px;">
+                        <i class="fa fa-eye"></i></a>
+                
                 </td>
                 </tr>
                 <?php }}?>
@@ -290,49 +282,8 @@
 <!-- Bootstrap js-->
 <script src="../assets/js/bootstrap/popper.min.js" ></script>
 <script src="../assets/js/bootstrap/bootstrap.js" ></script>
-
-<!-- Chart JS-->
-<!-- <script src="../assets/js/chart/Chart.min.js"></script> -->
-
-<!-- Morris Chart JS-->
-<!-- <script src="../assets/js/morris-chart/raphael.js"></script>
-<script src="../assets/js/morris-chart/morris.js"></script>
- -->
-<!-- owlcarousel js-->
-<!-- <script src="../assets/js/owlcarousel/owl.carousel.js" ></script> -->
-
-<!-- Sidebar jquery-->
-<!-- <script src="../assets/js/sidebar-menu.js" ></script> -->
-
-<!--Sparkline  Chart JS-->
-<!-- <script src="../assets/js/sparkline/sparkline.js"></script> -->
-
-<!--Height Equal Js-->
-<!-- <script src="../assets/js/height-equal.js"></script> -->
-
-<!-- prism js -->
-<!-- <script src="../assets/js/prism/prism.min.js"></script> -->
-
-<!-- clipboard js -->
-<!-- <script src="../assets/js/clipboard/clipboard.min.js" ></script>
- -->
-<!-- custom card js  -->
-<!-- <script src="../assets/js/custom-card/custom-card.js" ></script>
- -->
-<!-- Theme js-->
 <script src="../assets/js/script.js" ></script>
-<!-- <script src="../assets/js/theme-customizer/customizer.js"></script> -->
-<!-- <script src="../assets/js/chat-sidebar/chat.js"></script> -->
 <script src="../assets/js/dashboard-default.js" ></script>
-
-<!-- Counter js-->
-<!-- <script src="../assets/js/counter/jquery.waypoints.min.js"></script>
-<script src="../assets/js/counter/jquery.counterup.min.js"></script>
-<script src="../assets/js/counter/counter-custom.js"></script>
-
-<script src="../assets/js/notify/bootstrap-notify.min.js"></script>
-<script src="../assets/js/notify/index.js"></script>
- -->
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"></script>
 </body>
 
