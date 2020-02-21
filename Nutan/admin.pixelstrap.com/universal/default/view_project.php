@@ -1,6 +1,26 @@
+<?php
+error_reporting('E_All');
+
+session_start();
+// Check if the user is already logged in, if yes then redirect him to welcome page
+include_once('config.php');
+    $id=$_SESSION["id"];
+   $query = "select * from project where id='".$id."' ";
+
+       $query_process = mysqli_query($link,$query);
+        if(mysqli_num_rows($query_process)>0){
+            while($result = mysqli_fetch_assoc($query_process)){
+                $name= $result['project_name'];
+                $pd=$result['project_description'];
+       }}
+             
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name="author" content="pixelstrap">
+    <link rel="icon" href="../assets/images/nutunlogo.jpg" type="image/x-icon"/>
+    <link rel="shortcut icon" href="../assets/images/nutunlogo.jpg" type="image/x-icon"/>
   <title>Nutan Enterprises</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,13 +58,6 @@
             input[type=submit]:hover {
               background-color: #45a049;
             }
-
-            /*.btn
-            {
-                color: white;
-                float: right;
-            }*/
-
             .container {
               border-radius: 20px;
               background-color: #f2f2f2;
@@ -83,15 +96,6 @@
 <body>
 
 <div class="container">
-  <!-- <h2>Modal Example</h2> -->
-  <!-- Trigger the modal with a button -->
-  <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
-
-  <!-- Modal -->
-  <!-- <div class="modal fade" id="myModal" role="dialog"> -->
-    <!-- <div class="modal-dialog"> -->
-    
-      <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" onclick="window.location.href='index.php'">&times;</button>
@@ -104,7 +108,7 @@
             <label for="project_name">Project Name</label>
             </div>
             <div class="col-75">
-            <input type="text" id="Project_Name" name="project_name"  required="Please Enter Project Name..">
+            <input type="text" id="Project_Name" name="project_name" value="<?php echo $name ;?>" >
             </div>
             </div>
             <div class="row">
@@ -112,13 +116,10 @@
             <label for="project_description">Project Description</label>
             </div>
             <div class="col-75">
-            <textarea id="project_description" name="project_description"  required="Please Enter Details.." style="height:200px"></textarea>
+            <textarea id="project_description" name="project_description" value="<?php echo $pd ;?>" style="height:200px" ></textarea>
             </div>
             </div>
             <br>
-            <!-- <div class="btn">
-            <input type="submit" value="Submit">
-            </div> -->
             </form>
         </div>
         <div class="modal-footer">
