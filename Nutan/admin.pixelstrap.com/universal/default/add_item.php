@@ -1,11 +1,9 @@
 <?php
 session_start();
 include_once('config.php');
-    
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,11 +39,8 @@ include_once('config.php');
     <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
-
-
 <!--page-wrapper Start-->
 <div class="page-wrapper">
-
     <!--Page Header Start-->
     <div class="page-main-header">
         <div class="main-header-left">
@@ -125,9 +120,7 @@ include_once('config.php');
                 </div>
             </div>
         </div>
-
             <div class="page-body"><br>
-
         <style>
     * {
           box-sizing: border-box;
@@ -162,9 +155,7 @@ include_once('config.php');
             {
                 color: white;
                 float: right;
-
             }
-
             .container 
             { 
             margin-left: 10px;
@@ -225,7 +216,8 @@ include_once('config.php');
             </style>
             <div class ="project">
             
-              <table id="project">
+              <table>
+                <tbody id="project">
                 <tr class="tr-header">
                 <th width="10%">Sr No.</th>
                 <th width="25%"><center>Item type </center></th>
@@ -238,54 +230,49 @@ include_once('config.php');
                 <tr>
                     <td></td>
                     <td>
-         <select name="particulars" id="particulars-list"  style="width: 200px;" onChange="getState(this.value);">
-        <option disabled selected>Select Particulars</option><br>
+         <select name="particulars" id="particulars-list" style="width: 200px;"onChange="getState(this.value);">
+        <option disabled selected value="0">Select Particulars</option><br>
         <?php
-        $query = "select * from items";
+        $query = "select item_id,item_name from items";
         $query_process = mysqli_query($link,$query);
         if(mysqli_num_rows($query_process)>0){
             while($result = mysqli_fetch_assoc($query_process)){
-                $id=$result['item_id'];
+                 
                 ?>
      <option value="<?php echo $result["item_id"];?>"><?php echo $result["item_name"];?></option>
-        <?php }}?>
+        <?php
+     
+        
+           }} ?>
+
     </select>  
                     </td>
                <td>
                 <select name="item"  style="width: 200px;" id="item-list" onChange="getCost(this.value);" >
-        <option selected disabled>Select item</option><br><br>
+        <option selected disabled value="0">Select item</option><br><br>
                <?php
         $query = "select * from switches";
         $query_process = mysqli_query($link,$query);
         if(mysqli_num_rows($query_process)>0){
             while($result = mysqli_fetch_assoc($query_process)){
-              
-
+              $var =$result["switch_name"];
                 ?>
-          <option value="<?php echo $result["s_id"];?>"><?php echo $result["switch_name"]; ?></option>      
+          <option value="<?php echo $result["switch_name"];?>"><?php echo $result["s-id"]; ?></option>      
                 <?php
-                $s_id=$result['s_id'];  
+         
             }}?>
          </select> 
                </td>
                
-             <?php
-        $query1 = "select * from switches where s_id = '".$s_id."'";
-        $query_process1 = mysqli_query($link,$query1);
-        if(mysqli_num_rows($query_process1)>0){
-            while($result1 = mysqli_fetch_assoc($query_process1)){
-                
-              $cost=$result1['switch_rate'];
-              ?>
               <td><div id="reterap"><input type="text" name="rate" onchange="getText3()" id="rate" value="<?php '$cost' ?>"style="width: 120px;" ></td>
                 
-          <!-- <?php }}?> -->
+          
                 <!-- <td><input type="text" name="quantity"></td> -->
                 <td><input type="text"  id="quantity"name="quantity" onchange="getText3()" style="width: 125px;"></td>
-                <td><input type="text" class="sum" id="sum" style="width: 130px;"></td>
+                <td><input type="text" class="sum" disabled="disabled" id="sum" style="width: 130px; background-color: white"></td>
 
                 <td> 
-                    <button class="addrow" name="add" onclick="myFunction1();"><i class="fa fa-plus"></i></button>
+                    <button class="addrow" name="add" id="add" onclick="myFunction1();"><i class="fa fa-plus"></i></button>
                         </td>
                 </div>
                     </tr>
@@ -295,13 +282,13 @@ include_once('config.php');
                             <td></td>
                             <td></td>
                             <td class="text-right"><strong>Sub Total</strong></td>
-                            <td><span class="subtotal" id="subtotal">0.00</span></td>
+                            <td><input type="text" style="width: 100%" class="subtotal"value="0" id="subtotal"></td>
                         </tr>
                         <td></td>
                             <td></td>
                           <td></td>
                           <td></td>
-                            <td class="text-right"><strong>H/W cost of MATE</strong></td>
+                            <td class="text-right"><strong>H/W cost of material</strong></td>
                             <td><input class="form-control" style="width: 100%;" id="hwcost" value="0" type="text"></td>
                         </tr>
                         <tr>
@@ -324,26 +311,21 @@ include_once('config.php');
                             <td></td>
                             <td></td>
                             <td class="text-right"><strong>Grand Total</strong></td>
-                            <td><span  id="grandTotal">0</span></td>
+                            <td><span id="grandTotal">0</span></td>
                         </tr>
-                     </table>
-                        <br><br>
-          
-          
+                        </tbody>
+                     </table>     
 </div>
- <input type="submit" name="submit" value="submit">         
-</body>
-<footer class="footer-fix">
+ <input type="submit" id="submit" name="submit" onclick="save();" value="submit">         
+ <footer class="footer-fix">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-12 col-md-6 col-xl-6 footer-copyright">
                             <p class="mb-0">Nutan Enterprise © 2019 Created By <a href="http://www.fillion.in/" target="_blank">Fillion Solutions Pvt. Ltd.</a></p>
-                        </div>
-                        
+                        </div>    
                     </div>
                 </div>
 </footer>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
  <script>
 function getState(val) {
@@ -354,11 +336,11 @@ function getState(val) {
     data:'item_id='+val,
     success: function(data){
         console.log(data);
-        $("#item-list").html(data);
-        
+        $("#item-list").html(data);  
     }
     });
 }
+ 
 </script>
  <script>
     function getCost(val) {
@@ -369,54 +351,93 @@ function getState(val) {
     url: "get-country-state.php",
     data:'s_id='+val,
     success: function(data){
-        console.log(data);
         $("#reterap").html(data);
-        
     }
     });
-
 }
 </script>
 <script type="text/javascript">
-function myFunction1() {
-     var particulars = document.getElementById("particulars-list").value;
-     var item = document.getElementById("item-list").value;
+  var sTotal= 0;
+    var i=1;
+ function myFunction1() {
+     var par=document.getElementById("particulars-list");
+     var par1=document.getElementById("item-list");
+     var par2=document.getElementById("rate").value;
+     var par3=document.getElementById("quantity").value;
+     if(par.selectedIndex == 0 || par1.selectedIndex == 0|| par2 == 0|| par3 == 0)
+     {
+        alert("Please fill all fields");
+     }
+     else
+     {
+      var subT=document.getElementById("subtotal").value;
      var cost = document.getElementById("rate").value;
      var qty = document.getElementById("quantity").value;
      var sum = document.getElementById("sum").value;
-  var table = document.getElementById("project");
-  var row = table.insertRow(2);
-  var cell1 = row.insertCell(0);
-  var cell2 = row.insertCell(1);
-  var cell3 = row.insertCell(2);
-  var cell4 = row.insertCell(3);
-  var cell5 = row.insertCell(4);
-  var cell6 = row.insertCell(5);
-  cell2.innerHTML = particulars;
-   cell3.innerHTML = item;
-   cell4.innerHTML = cost;
-   cell5.innerHTML = qty;
-   cell6.innerHTML = sum;
-    document.getElementById("particulars-list").value('0');
-      document.getElementById("item-list").reset();
-      document.getElementById("rate").value="";
-      document.getElementById("quantity").value="";
-      document.getElementById("sum").value="";
-  
-}
+     intSum = parseFloat(sum);
+     
+     var subT1=parseFloat(subT);
+     sTotal = intSum + subT1;
+     var sTotal1 =sTotal.toFixed(2);
+     document.getElementById("subtotal").value=sTotal1;
+     var table = document.getElementById("project");
+     var row = table.insertRow(1+i);
+     var cell1 = row.insertCell(0);
+     var cell2 = row.insertCell(1);
+     var cell3 = row.insertCell(2);
+     var cell4 = row.insertCell(3);
+     var cell5 = row.insertCell(4);
+     var cell6 = row.insertCell(5);
+     row.insertCell(-1).textContent = "project";
+     var lastRow = row;
+     var lastCell = lastRow.cells[lastRow.cells.length - 1];
+     cell2.innerHTML = ($("#particulars-list option:selected").text());
+     cell3.innerHTML = ($("#item-list option:selected").text());
+     cell4.innerHTML = cost;
+     cell5.innerHTML = qty;
+     cell6.innerHTML = sum;
+     var j=parseInt(i);
+     lastCell.innerHTML = "<button class='delete' onclick='remove(i--)'><i class='fa fa-times-circle'></i></button>";
+     var par=document.getElementById("particulars-list"); par.selectedIndex =0;
+     var par1=document.getElementById("item-list"); par1.selectedIndex =0;
+     document.getElementById("rate").value="";
+     document.getElementById("quantity").value="";
+     document.getElementById("sum").value="";
+     cell1.innerHTML= i++;
+}}
 </script>
-<script>      
-   function getText3(){
-      var in1=document.getElementById('rate').value;
-      var in2=document.getElementById('quantity').value;
-      var in3=(in1*in2);
-      document.getElementById('sum',2).value=in3;
+<script>   
+
+   function getText3()
+   {
+      var rate=document.getElementById('rate').value;
+      var quantity=document.getElementById('quantity').value;
+      var sum=(rate*quantity);
+      var sum1=sum.toFixed(2);
+      var tex=document.getElementById('sum').value=sum1;
    }
+</script>
+<script>
+    function remove(i)
+    { 
+      var cell = document.getElementById("project").rows[i].cells;
+        var Total1 = project.rows[i].cells[5].innerHTML;
+        var yes=confirm("are you sure you want to delete this entry?")
+        if(yes)
+        {
+        var subT=document.getElementById("subtotal").value;
+         subT1=subT-Total1;  
+        document.getElementById("project").deleteRow(i);
+        document.getElementById("subtotal").value=subT1;
+        subT1=subtotal.value;
+      
+
+        }
+    }
 </script>
 <script>
         jQuery(document).ready(function(){
             jQuery().invoice({
-                // delete : ".delete",
                 parentClass : ".item-row",
                 price : ".price",
                 qty : ".qty",
@@ -441,115 +462,31 @@ function myFunction1() {
 
         jQuery('body').on('click', function (e) {
             var cur = e.target.id || e.target.className;
-
-            if (cur == $.opt.delete.substring(1))
-                inv.deleteRow(e.target);
-
             inv.init();
         });
-
         jQuery('body').on('keyup', function (e) {
             inv.init();
         });
-
         return this;
     };
 }(jQuery));
-
 function Invoice() {
     self = this;
 }
-
-Invoice.prototype = {
-    constructor: Invoice,
-
+Invoice.prototype = {   
     init: function () {
-        // this.calcTotalQty();
-        this.calcSubtotal();
         this.calcGrandTotal();
     },
-    
-    calcSubtotal: function () {
-         var subtotal = 0;
-         jQuery($.opt.sum).each(function (i) {
-             var total = jQuery(this).val();
-             if (!isNaN(total)) 
-                {subtotal += Number(total);
-         }});
-
-         subtotal = self.roundNumber(subtotal, 2);
-
-         jQuery($.opt.subtotal).html(subtotal);
-
-         return 1;
-     },
-
+   
     calcGrandTotal: function () {
-        var grandTotal = Number(jQuery($.opt.subtotal).html())
+        var grandTotal = Number(jQuery($.opt.subtotal).val())
                        + Number(jQuery($.opt.hwcost).val())
                        + Number(jQuery($.opt.labour).val())
                        + Number(jQuery($.opt.profit).val());
-        grandTotal = self.roundNumber(grandTotal, 2);
-
+        grandTotal = Number(grandTotal, 2);
         jQuery($.opt.grandTotal).html(grandTotal);
-
         return 1;
     },
-
-     
-        roundNumber: function (number, decimals) {
-        var newString;// The new rounded number
-        decimals = Number(decimals);
-
-        if (decimals < 1) {
-            newString = (Math.round(number)).toString();
-        } else {
-            var numString = number.toString();
-
-            if (numString.lastIndexOf(".") == -1) {// If there is no decimal point
-                numString += ".";// give it one at the end
-            }
-
-            var cutoff = numString.lastIndexOf(".") + decimals;// The point at which to truncate the number
-            var d1 = Number(numString.substring(cutoff, cutoff + 1));// The value of the last decimal place that we'll end up with
-            var d2 = Number(numString.substring(cutoff + 1, cutoff + 2));// The next decimal, after the last one we want
-
-            if (d2 >= 5) {// Do we need to round up at all? If not, the string will just be truncated
-                if (d1 == 9 && cutoff > 0) {// If the last digit is 9, find a new cutoff point
-                    while (cutoff > 0 && (d1 == 9 || isNaN(d1))) {
-                        if (d1 != ".") {
-                            cutoff -= 1;
-                            d1 = Number(numString.substring(cutoff, cutoff + 1));
-                        } else {
-                            cutoff -= 1;
-                        }
-                    }
-                }
-
-                d1 += 1;
-            }
-
-            if (d1 == 10) {
-                numString = numString.substring(0, numString.lastIndexOf("."));
-                var roundedNum = Number(numString) + 1;
-                newString = roundedNum.toString() + '.';
-            } else {
-                newString = numString.substring(0, cutoff) + d1.toString();
-            }
-        }
-
-        if (newString.lastIndexOf(".") == -1) {// Do this again, to the new string
-            newString += ".";
-        }
-
-        var decs = (newString.substring(newString.lastIndexOf(".") + 1)).length;
-
-        for (var i = 0; i < decimals - decs; i++)
-            newString += "0";
-        //var newNumber = Number(newString);// make it a number if you like
-
-        return newString; // Output the result to the form field (change for your purposes)
-    }
 };
 
 jQuery.fn.invoice.defaults = {
@@ -558,7 +495,6 @@ jQuery.fn.invoice.defaults = {
     price: ".price",
     qty: ".qty",
     total: ".total",
-    totalQty: "#totalQty",
     subtotal: "#subtotal",
     hwcost: "#hwcost",
     labour: "#labour",
