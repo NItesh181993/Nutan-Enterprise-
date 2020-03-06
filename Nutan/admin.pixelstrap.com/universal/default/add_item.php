@@ -31,11 +31,9 @@ include_once('config.php');
     <link rel="stylesheet" type="text/css" href="../assets/css/owlcarousel.css">
     <!-- Bootstrap css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
-
     <!-- App css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 
-    <!-- Responsive css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
@@ -46,7 +44,7 @@ include_once('config.php');
         <div class="main-header-left">
             <div class="logo-wrapper">
                 <a href="index.php">
-                    <img src="../assets/images/final_logo1.jpg" class="image-dark" alt=""/>
+                    <img src="../assets/images/final_logo2.png" style="height: 56px;" class="image-dark" alt=""/>
                 </a>
             </div>
         </div>
@@ -169,8 +167,8 @@ include_once('config.php');
             <div class="container">
             <!-- <form action="#.php"> -->
                 <label>Please enter receipe name</label>
-                <input type="text" name="receipe_name" >
-    
+                <input type="text" id="receipe_name"name="receipe_name" >
+                <button onclick="create();">create</button>
 <style>
  #project
         {
@@ -282,28 +280,31 @@ include_once('config.php');
                             <td></td>
                             <td></td>
                             <td class="text-right"><strong>Sub Total</strong></td>
-                            <td><input type="text" style="width: 100%" class="subtotal"value="0" id="subtotal"></td>
+                            <td><input type="text" style="width: 100%;background-color: white"disabled="disabled" class="subtotal"  value="0" id="subtotal"></td>
                         </tr>
                         <td></td>
                             <td></td>
                           <td></td>
-                          <td></td>
                             <td class="text-right"><strong>H/W cost of material</strong></td>
+                            <td><input class="form-control" style="width: 100%;" id="hwcost_perc" onchange="calc2();"type="text"></td>
                             <td><input class="form-control" style="width: 100%;" id="hwcost" value="0" type="text"></td>
                         </tr>
                         <tr>
                           <td></td>
                           <td></td>
                             <td></td>
-                            <td></td>
+                            
                             <td class="text-right"><strong>Labour</strong></td> 
-                            <td><input class="form-control"style="width: 100%;" id="labour" value="0" type="text"></td>
+                            <td><input class="form-control"style="width: 100%;" id="labour_perc" onchange="calc1();" 
+                            type="text"></td>
+                            <td><input class="form-control"style="width: 100%;" id="labour"  type="text"></td>
                         </tr>
                         <td></td>
                           <td></td>
                             <td></td>
-                            <td></td>
-                        <td class="text-right"><strong>Profit</strong></td> 
+                            
+                        <td class="text-right"><strong>Profit%</strong></td> 
+                        <td><input class="form-control" style="width: 100%;" id="profit_perc" onchange="calc();" type="text"></td>
                             <td><input class="form-control" style="width: 100%;" id="profit" value="0" type="text"></td>
                         <tr>
                             <td></td>
@@ -340,7 +341,124 @@ function getState(val) {
     }
     });
 }
- 
+function create()
+{
+    var test=document.getElementById("receipe_name").value
+ if (test=="") {
+    alert("enter the receipe name");
+ }
+ else
+{
+var name=document.getElementById("receipe_name").value;
+    $.ajax({
+    type: "POST",
+    url: "test.php",
+    data:"name="+name,
+    success: function(data){
+        alert(data);
+          
+    }
+    });
+
+}
+
+
+
+}
+
+
+
+
+function save()
+{  
+    var r=2;
+    var test=document.getElementById("receipe_name").value
+ if (test=="") {
+    alert("enter the receipe name");
+     }
+     else
+     {
+    var table=document.getElementById("project");
+    var count=i;
+    
+
+if(count > 1)
+{
+    
+while(r<=count)
+{
+    var board=[];
+    rownum=table.rows[r];
+    var c=1;
+  while(c<=6)
+  {
+    cell_Value=rownum.cells[c++];
+        
+            board.push(cell_Value.innerHTML);
+            var item_type=board[0];
+            var item_name=board[1];
+            var rate=board[2];
+            var qty=board[3];
+            var total=board[4];
+                 
+        }
+   var name=document.getElementById("receipe_name").value; 
+   var grandTotal=document.getElementById("grandTotal").innerHTML;
+        $.ajax({ type: "POST",
+            url: "test1.php",
+            data:{
+                name:name,
+                item_type:item_type,
+                item_name:item_name,
+                rate:rate,
+                qty:qty,
+                total:total,
+                gtotal:grandTotal 
+                        },
+                success: function(data){
+                    
+                    window.location.reload();
+                           }
+            });
+        r++; 
+        }
+        alert("receipe added succesfully");
+    }
+}
+}
+
+
+
+
+  function calc()
+  {
+var profit =document.getElementById("profit_perc").value;
+var subtotal =document.getElementById("grandTotal").innerHTML;
+var result = subtotal * parseFloat((profit/100));
+var res1=result.toFixed(2);
+document.getElementById('profit').value=res1;
+
+  }
+
+
+  function calc1()
+  {
+
+var labour =document.getElementById("labour_perc").value;
+var ftotal =document.getElementById("grandTotal").innerHTML;
+var result1 = parseFloat(ftotal) + parseFloat(labour);
+document.getElementById("labour").value=labour
+
+  }
+  function calc2()
+  {
+var hw =document.getElementById("hwcost_perc").value;
+var grandTotal =document.getElementById("subtotal").value;
+var result1 = parseFloat(grandTotal) * parseFloat((hw/100));
+var res=result1.toFixed(2);
+document.getElementById("hwcost").value=res;
+
+  }
 </script>
  <script>
     function getCost(val) {
@@ -404,7 +522,8 @@ function getState(val) {
      document.getElementById("quantity").value="";
      document.getElementById("sum").value="";
      cell1.innerHTML= i++;
-}}
+}
+}
 </script>
 <script>   
 
@@ -414,7 +533,7 @@ function getState(val) {
       var quantity=document.getElementById('quantity').value;
       var sum=(rate*quantity);
       var sum1=sum.toFixed(2);
-      var tex=document.getElementById('sum').value=sum1;
+      document.getElementById('sum').value=sum1;
    }
 </script>
 <script>
@@ -423,16 +542,15 @@ function getState(val) {
       var cell = document.getElementById("project").rows[i].cells;
         var Total1 = project.rows[i].cells[5].innerHTML;
         var yes=confirm("are you sure you want to delete this entry?")
-        if(yes)
+        if(yes && i>=2)
         {
         var subT=document.getElementById("subtotal").value;
-         subT1=subT-Total1;  
+         subT=subT-Total1;  
         document.getElementById("project").deleteRow(i);
-        document.getElementById("subtotal").value=subT1;
-        subT1=subtotal.value;
-      
-
+        document.getElementById("subtotal").value=subT;
         }
+        calc1();
+        calc(); 
     }
 </script>
 <script>
@@ -484,7 +602,8 @@ Invoice.prototype = {
                        + Number(jQuery($.opt.labour).val())
                        + Number(jQuery($.opt.profit).val());
         grandTotal = Number(grandTotal, 2);
-        jQuery($.opt.grandTotal).html(grandTotal);
+       var grandTotal1=grandTotal.toFixed(2);
+        jQuery($.opt.grandTotal).html(grandTotal1);
         return 1;
     },
 };
