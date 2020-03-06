@@ -1,4 +1,5 @@
 <?php
+// error_reporting(E_All)
 session_start();
 // Check if the user is already logged in, if yes then redirect him to welcome page
      if(!isset($_SESSION["loggedin"])){
@@ -13,7 +14,7 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<!-- Mirrored from admin.pixelstrap.com/universal/default/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Dec 2019 10:51:20 GMT -->
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,10 +22,8 @@ session_start();
     <meta name="description" content="universal admin is super flexible, powerful, clean & modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, universal admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
-    <link rel="icon" href="../assets/images/Nlogo.png" type="image/x-icon"/>
-    <link rel="shortcut icon" href="../assets/images/Nlogo.png" type="image/x-icon"/>
-    <!-- <link rel="icon" href="../assets/images/nutunlogo.jpg" type="image/x-icon"/>
-    <link rel="shortcut icon" href="../assets/images/nutunlogo.jpg" type="image/x-icon"/> -->
+    <link rel="icon" href="../assets/images/nutunlogo.jpg" type="image/x-icon"/>
+    <link rel="shortcut icon" href="../assets/images/nutunlogo.jpg" type="image/x-icon"/>
     <title>Nutan Enterprises</title>
 
     <!--Google font-->
@@ -61,20 +60,6 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
-<!-- Loader starts -->
-<!-- <div class="loader-wrapper">
-    <div class="loader bg-white">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <h4>Have a great day at work today <span>&#x263A;</span></h4>
-    </div>
-</div>
- --><!-- Loader ends -->
-
-<!--page-wrapper Start-->
 <div class="page-wrapper">
 
     <!--Page Header Start-->
@@ -82,8 +67,7 @@ session_start();
         <div class="main-header-left">
             <div class="logo-wrapper">
                 <a href="index.php">
-                    <img src="../assets/images/logo_of_nutun.png" class="image-dark" alt=""/>
-                    <!-- <img src="../assets/images/final_logo1.jpg" class="image-dark" alt=""/> -->
+                    <img src="../assets/images/final_logo2.png" style="height: 56px;" class="image-dark" alt=""/>
                 </a>
             </div>
         </div>
@@ -94,7 +78,7 @@ session_start();
                         <form class="form-inline search-form">
                             <div class="form-group">
                                 <label class="sr-only">Email</label>
-                                <input type="search"  class="form-control-plaintext" placeholder="Search.." >
+                                <input type="search" id="myInput"onkeyup="myFunction()" class="form-control-plaintext" placeholder="Search.." >
                                 <span class="d-sm-none mobile-search">
                                 </span>
                             </div>
@@ -144,13 +128,14 @@ session_start();
                     <a href="Create_project.php" class="sidebar-header">
                         <i class="icon-desktop"></i><span>Create New Project</span>
                     </a>
+                    <a href="add_developer.php" class="sidebar-header">
+                        <i class="icon-desktop"></i><span>Add Developer</span>
+                    </a>
                     <a href="add_item.php" class="sidebar-header">
                         <i class="icon-desktop"></i><span>Add Recipes</span>
                     </a>
-                    <a href="Recipes_and_sb.php" class="sidebar-header">
-                        <i class="icon-desktop"></i><span>BOQ</span>
-                    <a href="add_product.php" class="sidebar-header">
-                    <i class="icon-desktop"></i><span>Add prodect</span>
+                    <a href="new_product.php" class="sidebar-header">
+                    <i class="icon-desktop"></i><span>Add product</span>
                     </a>
             <div class="sidebar-widget text-center">
                 <div class="sidebar-widget-top">
@@ -219,8 +204,9 @@ session_start();
               <table id="project">
                 <tr>
                 <th width="6%">Sr No.</th>
-                <th width="65%"><center>Project List</center></th>
-                <th width="4%"><center>Date</center></th>
+                <th width="50%"><center>Project List</center></th>
+                <th width="20%">Developer</th>
+                <th width="10%"><center>Date</center></th>
                 <th><center>Action</center></th>
                 </tr>
                 <?php
@@ -231,17 +217,20 @@ session_start();
                 <tr>    
                 <td><?php echo $i++;?></td>
                 <td><?php echo $row['project_name'];?></td>
-                <td><?php echo $row['date'];?></td>
+                <td> <?php echo $row['developer']?></td>
+                <td><?php echo $row['Date_Time'];?></td>
+
                 <td>
-                    <a href="add_item.php?id=<?php echo $row['id'];?>" name="add" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add Recipe" style="padding: 7px;">
+                    <a href="switch_board.php" name="add"<?php {$_SESSION["id"] = $row['id'];} ?> class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add Recipe" style="padding: 7px;">
                         <i class="fa fa-plus"></i></a>
-                           <a href="edit_item.php?id=<?php echo $row['id'];?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="edit Recipe" style="padding: 7px;">
-                        <i class="fa fa-edit"></i></a>   
-                        <a href="delete.php?id=<?php echo $row['id'];?>"onclick="return confirm('Are you sure to delete?')"class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Delete project" style="padding: 7px;">
+                           <a href="Recipes_and_sb.php?id=<?php echo $row['id'];?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="edit Receipe" style="padding: 7px;">
+                           <i class="fa fa-edit"></i></a>   
+                        <a href="delete.php?id=<?php echo $row['id'];?>"onclick="return confirm('Are you sure to delete project?')"class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Delete project" style="padding: 7px;">
                         <i class="fa fa-trash"></i></a>
-                        <a href="view_project.php?id=<?php echo $row['id'];?>?project_name=<?php echo $row['project_name'];?>?project_description=<?php echo $row['project_description'];?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View details" style="padding: 7px;">
+                        <a href="view_project.php?id=<?php echo $row['id'];?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View details" <?php $id = $row['id']; ?> style="padding: 7px;" >
                         <i class="fa fa-eye"></i></a>
-                
+                    
+                        
                 </td>
                 </tr>
                 <?php }}?>
@@ -261,13 +250,6 @@ session_start();
                         <div class="col-sm-12 col-md-6 col-xl-6 footer-copyright">
                             <p class="mb-0">Nutan Enterprise © 2019 Created By <a href="http://www.fillion.in/" target="_blank">Fillion Solutions Pvt. Ltd.</a></p>
                         </div>
-                        <!-- <div class="col-sm-12  col-md-6 col-xl-6">
-                            <ul class="footer-links">
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Privacy</a></li>
-                                <li><a href="#">T&amp;C</a></li>
-                            </ul>
-                        </div> -->
                     </div>
                 </div>
 </footer>
@@ -283,9 +265,27 @@ session_start();
 <script src="../assets/js/bootstrap/popper.min.js" ></script>
 <script src="../assets/js/bootstrap/bootstrap.js" ></script>
 <script src="../assets/js/script.js" ></script>
-<script src="../assets/js/dashboard-default.js" ></script>
- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"></script>
-</body>
 
-<!-- Mirrored from admin.pixelstrap.com/universal/default/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Dec 2019 10:53:16 GMT -->
+
+ <script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("project");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+</body>
 </html>
