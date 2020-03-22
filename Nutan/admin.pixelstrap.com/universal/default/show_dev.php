@@ -1,39 +1,20 @@
-<!--This page was created by samarth keskar on date : . this page creates the new project and inserts into the database named nutan and table name project-->
 <?php
-session_start();// Initialize the session
-include_once ("config.php");// Include config file
-if(isset($_POST['submit']))
-{
-        if (empty($_POST['developer']))
-        {
+// error_reporting(E_All)
+session_start();
+// Check if the user is already logged in, if yes then redirect him to welcome page
+     if(!isset($_SESSION["loggedin"])){
+       header("location: login.php");
+       exit;
+     }
+               include_once('config.php');
+             $query= "SELECT * FROM  developer";
+             $result=mysqli_query($link,$query);
+             
 
-            $error = true;
-        } 
-        else {
-
-            $developer = $_POST['developer'];
-            $address = $_POST['address'];
-            $contact = $_POST['contact'];
-         
-
-            $sql = "INSERT INTO developer (developer_name,address,contact) VALUES('".$developer."','".$address."','".$contact."')";
-                $process_query = mysqli_query($link,$sql);
-                if(!$process_query){
-                    echo $mysqli->error;
-                    }
-                    else{
-                    echo "<script>alert('Developer Added Successfully ..!');
-                    window.location.href = 'show_dev.php';
-                    </script>";
-                }
-                
-    }
-}
-
-    ?>
-<!-- Mirrored from admin.pixelstrap.com/universal/default/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Dec 2019 10:51:20 GMT -->
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,13 +29,15 @@ if(isset($_POST['submit']))
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
-        <!-- breadcrum -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/breadcrum.css">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" type="text/css" href="../assets/css/fontawesome.css">
+            <!-- breadcrum -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/breadcrum.css">
 
     <!-- ico-font -->
     <link rel="stylesheet" type="text/css" href="../assets/css/icofont.css">
+
 
     <!-- Themify icon -->
     <link rel="stylesheet" type="text/css" href="../assets/css/themify.css">
@@ -76,11 +59,9 @@ if(isset($_POST['submit']))
 
     <!-- Responsive css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
-<!--page-wrapper Start-->
 <div class="page-wrapper">
 
     <!--Page Header Start-->
@@ -88,14 +69,14 @@ if(isset($_POST['submit']))
         <div class="main-header-left">
             <div class="logo-wrapper">
                 <a href="index.php">
-                   <img src="../assets/images/final_logo2.png" style="height: 56px;" class="image-dark" alt=""/>
-
+                    <img src="../assets/images/final_logo2.png" style="height: 56px;" class="image-dark" alt=""/>
                 </a>
             </div>
         </div>
         <ul class="breadcrumb">
   <li><a href="index.php">Home</a></li>
-  <li>Add developer</li>
+  <li><a href="add_developer.php">Add developer</a></li>
+  <li>List of developers</li>
 </ul>
         <div class="main-header-right row">
             <div class="nav-right col">
@@ -104,7 +85,7 @@ if(isset($_POST['submit']))
                         <form class="form-inline search-form">
                             <div class="form-group">
                                 <label class="sr-only">Email</label>
-                                <input type="search"  class="form-control-plaintext" placeholder="Search.." >
+                                <input type="search" id="myInput" onkeyup="myFunction()" class="form-control-plaintext" placeholder="Search.." >
                                 <span class="d-sm-none mobile-search">
                                 </span>
                             </div>
@@ -115,7 +96,7 @@ if(isset($_POST['submit']))
                             <img class="align-self-center pull-right mr-2" src="../assets/images/dashboard/user.png" alt="header-user"/>
                             <div class="media-body">
                                 <h6 class="m-0 txt-dark f-16">
-                                     <?php echo $_SESSION['username']; ?> 
+                                    <?php echo $_SESSION['username']; ?>
                                     <i class="fa fa-angle-down pull-right ml-2"></i>
                                 </h6>
                             </div>
@@ -154,8 +135,14 @@ if(isset($_POST['submit']))
                     <a href="Create_project.php" class="sidebar-header">
                         <i class="icon-desktop"></i><span>Create New Project</span>
                     </a>
-                    <a href="list_receipe.php" class="sidebar-header">
-                        <i class="icon-desktop"></i><span>List of Recipes</span>
+                    <a href="add_developer.php" class="sidebar-header">
+                        <i class="icon-desktop"></i><span>Add Developer</span>
+                    </a>
+                    <a href="add_item.php" class="sidebar-header">
+                        <i class="icon-desktop"></i><span>Add Recipes</span>
+                    </a>
+                    <a href="new_product.php" class="sidebar-header">
+                    <i class="icon-desktop"></i><span>Add product</span>
                     </a>
             <div class="sidebar-widget text-center">
                 <div class="sidebar-widget-top">
@@ -171,141 +158,139 @@ if(isset($_POST['submit']))
             </div>
         </div>
         
-        <!--Page Sidebar Ends-->
-        <!--Page Sidebar Ends-->
 
 <!-- page Body with CSS -->
 
-            <div class="page-body"><br>
-        <style>
-    * {
-          box-sizing: border-box;
-          padding-bottom: 0px;
+        <div class="page-body"><br>
+            <!-- Container-fluid starts -->
+            <style type="text/css">
+    #project
+        {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
         }
-
-        input[type=text], select, textarea {
-          width: 100%;
-          padding: 15px;
-          padding-bottom: 20px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          resize: vertical;
+    #project td, #project th 
+        {
+        border: 1px solid #ddd;
+        text-align: center;
+        padding: 8px;
         }
-
-            label {
-              padding: 12px 12px 12px 12px;
-              display: outline-block;
-              font-size: 15px;
-              float: left;
-            }
-
-            input[type=submit] {
-              background-color: #4CAF50;
-              color: white;
-              padding: 10px 10px;
-            }
-
-            input[type=submit]:hover {
-              background-color: #45a049;
-            }
-
-            .btn
-            {
-                color: white;
-                float: right;
-            }
-
-            .container {
-              border-radius: 20px;
-              background-color: #f2f2f2;
-              padding: 5px;
-            }
-            .col-25 {
-              /*float: left;*/
-              width: 40%;
-              margin-top: 30px;
-              padding-left: 30px;
-            }
-
-            .col-75 {
-              /*float: left;*/
-              width: 40%;
-              margin-top: 30px;
-              padding-left: 30px;
-              height: 20px;
-            }
-
-     
-            .row:after {
-              content: "";
-              display: table;
-              clear: both;
-            }
-            input::-webkit-outer-spin-button,
-            input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-
-            @media screen and (max-width: 600px) {
-              .col-25, .col-75, input[type=submit] {
-                width: 100px;
-              }
-            }
-            </style>
+    #project tr:nth-child(even)
+        {
+        background-color: #f2f2f2;
+        }
     
-            <div class="container">
-            <form method="POST" action="add_developer.php">
-            <div class="row">
-            <div class="col-25">
-            <label for="developer">Developer name</label>
+    #project tr:hover 
+        {
+        background-color: #ddd;
+        }
+
+    #project th
+        {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: #a1a1a1;
+        color: white;
+        }
+
+    .button 
+        {
+        color: black;
+        border: 0px;
+
+        }
+    .button:hover 
+        {
+        background-color: #000;
+        color: white;
+        }
+            </style>
+            <div class ="project">
+            
+              <table id="project">
+                <tr>
+                <th width="6%">Sr No.</th>
+                <th width="50%"><center>Developer name</center></th>
+                <th width="20%">Address</th>
+                <th width="10%"><center>Contact</center></th>
+                <th><center>Action</center></th>
+                </tr>
+                <?php
+                $i = 1;
+                if(mysqli_num_rows($result)>0){
+                while ($row= mysqli_fetch_assoc($result)){ ?>
+                
+                <tr>    
+                <td><?php echo $i++;?></td>
+                <td><?php echo $row['developer_name'];?></td>
+                <td> <?php echo $row['address']?></td>
+                <td><?php echo $row['contact'];?></td>
+
+                <td>
+                       <a href="update_dev.php?id=<?php echo $row['id'];?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="edit developer details" style="padding: 7px;">
+                           <i class="fa fa-edit"></i></a>   
+                        <a href="delete1.php?id=<?php echo $row['id'];?>"onclick="return confirm('Are you sure to delete project?')"class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Delete developer" style="padding: 7px;">
+                        <i class="fa fa-trash"></i></a>
+                        
+                    
+                        
+                </td>
+                </tr>
+                <?php }}?>
+
+                
+                         </table>
             </div>
-            <div class="col-75">
-            <input type="text" id="developer" name="developer" placeholder="developer Name" required="Please Enter developer Name..">
-            </div>
-            <div class="col-25">
-            <label for="Address">Address</label>
-            </div>
-            <div class="col-75">
-            <input type="text" id="address" name="address" placeholder="developer's address" required="Please Enter developer Address..">
-            </div>
-            <div class="col-25">
-            <label for="contact">contact number</label>
-            </div>
-            <div class="col-75">
-            <input type="tel" maxlength="10" id="contact" name="contact" placeholder="contact number" required="Please Enter developer Name..">
-            </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <div class="col-25">
-            <div class="btn">
-            <input type="submit" name="show" value="show" onclick="window.location.href='show_dev.php'">
-            </div>
-            </div>
-            </div>
-            <div class="btn">
-            <input type="submit" value="Submit" name="submit">
-            </div>
-            </form>
-            </div>
+        </div>
         <!--Page Body Ends-->
 
+    <!--Page Body Ends-->
+
 </div>
-</div>
-        </div>
-    </div>
-    <footer class="footer-fix">
+ <footer class="footer-fix">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-12 col-md-6 col-xl-6 footer-copyright">
                             <p class="mb-0">Nutan Enterprise © 2019 Created By <a href="http://www.fillion.in/" target="_blank">Fillion Solutions Pvt. Ltd.</a></p>
                         </div>
-             
                     </div>
                 </div>
 </footer>
+        </div>
+    </div>
 </div>
+<!--page-wrapper Ends-->
+
+<!-- latest jquery-->
+<script src="../assets/js/jquery-3.2.1.min.js" ></script>
+
+
+<!-- Bootstrap js-->
+<script src="../assets/js/bootstrap/popper.min.js" ></script>
+<script src="../assets/js/bootstrap/bootstrap.js" ></script>
+
+
+
+ <script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("project");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
 </body>
 </html>

@@ -2,32 +2,18 @@
 <?php
 session_start();// Initialize the session
 include_once ("config.php");// Include config file
-if(isset($_POST['submit']))
-{
-        if (empty($_POST['developer']))
-        {
+$id=$_GET["id"];
 
-            $error = true;
-        } 
-        else {
+    
+   $query = "select * from developer where id='".$id."' ";
+       $query_process = mysqli_query($link,$query);
+        if(mysqli_num_rows($query_process)>0){
+            while($result = mysqli_fetch_assoc($query_process)){
+                $name =$result['developer_name'];
+                $address =$result['address'];
+                $contact =$result['contact'];
 
-            $developer = $_POST['developer'];
-            $address = $_POST['address'];
-            $contact = $_POST['contact'];
-         
-
-            $sql = "INSERT INTO developer (developer_name,address,contact) VALUES('".$developer."','".$address."','".$contact."')";
-                $process_query = mysqli_query($link,$sql);
-                if(!$process_query){
-                    echo $mysqli->error;
-                    }
-                    else{
-                    echo "<script>alert('Developer Added Successfully ..!');
-                    window.location.href = 'show_dev.php';
-                    </script>";
-                }
-                
-    }
+}
 }
 
     ?>
@@ -48,8 +34,7 @@ if(isset($_POST['submit']))
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
-        <!-- breadcrum -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/breadcrum.css">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" type="text/css" href="../assets/css/fontawesome.css">
 
@@ -93,10 +78,6 @@ if(isset($_POST['submit']))
                 </a>
             </div>
         </div>
-        <ul class="breadcrumb">
-  <li><a href="index.php">Home</a></li>
-  <li>Add developer</li>
-</ul>
         <div class="main-header-right row">
             <div class="nav-right col">
                 <ul class="nav-menus">
@@ -154,7 +135,7 @@ if(isset($_POST['submit']))
                     <a href="Create_project.php" class="sidebar-header">
                         <i class="icon-desktop"></i><span>Create New Project</span>
                     </a>
-                    <a href="list_receipe.php" class="sidebar-header">
+                    <a href="#" class="sidebar-header">
                         <i class="icon-desktop"></i><span>List of Recipes</span>
                     </a>
             <div class="sidebar-widget text-center">
@@ -254,48 +235,41 @@ if(isset($_POST['submit']))
             </style>
     
             <div class="container">
-            <form method="POST" action="add_developer.php">
+            <form method="POST">
             <div class="row">
             <div class="col-25">
             <label for="developer">Developer name</label>
             </div>
             <div class="col-75">
-            <input type="text" id="developer" name="developer" placeholder="developer Name" required="Please Enter developer Name..">
+            <input type="text" id="developer" name="developer" value="<?php echo $name ?>" required="Please Enter developer Name..">
             </div>
             <div class="col-25">
             <label for="Address">Address</label>
             </div>
             <div class="col-75">
-            <input type="text" id="address" name="address" placeholder="developer's address" required="Please Enter developer Address..">
+            <input type="text" id="address" name="address" value="<?php echo $address ?>" required="Please Enter developer Address..">
             </div>
             <div class="col-25">
             <label for="contact">contact number</label>
             </div>
             <div class="col-75">
-            <input type="tel" maxlength="10" id="contact" name="contact" placeholder="contact number" required="Please Enter developer Name..">
+            <input type="number" id="contact" name="contact" value="<?php echo $contact ?>" required="Please Enter developer Name..">
             </div>
             <br>
             <br>
             <br>
             <br>
             <br>
-            <div class="col-25">
-            <div class="btn">
-            <input type="submit" name="show" value="show" onclick="window.location.href='show_dev.php'">
-            </div>
-            </div>
+          
             </div>
             <div class="btn">
-            <input type="submit" value="Submit" name="submit">
+            <input type="submit" value="update" onclick="update12();" name="submit">
             </div>
             </form>
             </div>
         <!--Page Body Ends-->
 
 </div>
-</div>
-        </div>
-    </div>
     <footer class="footer-fix">
                 <div class="container-fluid">
                     <div class="row">
@@ -306,6 +280,31 @@ if(isset($_POST['submit']))
                     </div>
                 </div>
 </footer>
-</div>
+
+<script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" ></script>
+
+<script type="text/javascript">
+    function update12() {
+var name =document.getElementById("developer").value;
+var address =document.getElementById("address").value;
+var contact =document.getElementById("contact").value;
+var id = "<?php echo $id;?>"
+  jQuery.ajax({
+            type: "POST",
+            url: "update1.php",
+            data:{
+                'id':id,
+                'name':name,
+                'address':address,
+                'contact':contact
+                 },
+                success: function(data){
+                    alert(data);
+                    window.location.href='show_dev.php';
+                           }
+            });
+    
+    }
+</script>
 </body>
 </html>
