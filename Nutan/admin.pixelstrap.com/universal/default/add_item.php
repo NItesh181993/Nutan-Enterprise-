@@ -25,6 +25,8 @@ include_once('config.php');
     <link rel="stylesheet" type="text/css" href="../assets/css/themify.css">
     <!-- Flag icon -->
     <link rel="stylesheet" type="text/css" href="../assets/css/flag-icon.css">
+            <!-- breadcrum -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/breadcrum.css">
     <!-- prism css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/prism.css">
     <!-- Owl css -->
@@ -33,7 +35,6 @@ include_once('config.php');
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
     <!-- App css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-
     <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
@@ -48,6 +49,10 @@ include_once('config.php');
                 </a>
             </div>
         </div>
+             <ul class="breadcrumb">
+  <li><a href="index.php">Home</a></li>
+  <li>Add receipe</li>
+</ul>
         <div class="main-header-right row">
             <div class="nav-right col">
                 <ul class="nav-menus">
@@ -102,7 +107,7 @@ include_once('config.php');
                     <a href="Create_project.php" class="sidebar-header">
                         <i class="icon-desktop"></i><span>Create New Project</span>
                     </a>
-                    <a href="#" class="sidebar-header">
+                    <a href="list_receipe.php" class="sidebar-header">
                         <i class="icon-desktop"></i><span>List of Recipes</span>    
                     </a>
             <div class="sidebar-widget text-center">
@@ -175,13 +180,13 @@ include_once('config.php');
         font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
         border-collapse: collapse;
         width: 100%;
-        margin-left: 0px;
+        margin-left: 25px;
         }
     #project td, #project th 
         {
         border: 1px solid #ddd;
         text-align: center;
-        padding: 8px;
+        padding: 2px;
         }
     #project tr:nth-child(even)
         {
@@ -213,14 +218,13 @@ include_once('config.php');
         }
             </style>
             <div class ="project">
-            
-              <table>
+            <table>
                 <tbody id="project">
-                <tr class="tr-header">
-                <th width="10%">Sr No.</th>
-                <th width="25%"><center>Item type </center></th>
-                <th width="30%"><center>Item</center></th>
-                <th width="10%"><center>Rate</center></th>
+                <th width="19%">Sr No.</th>
+                <th width="1%"><center>Item type </center></th>
+                <th width="5%"><center>Make </center></th>
+                <th width="2%"><center>Item</center></th>
+                <th width="3%"><center>Rate</center></th>
                 <th width="9%"><center>Quantity</center></th>
                 <th width="9%"><center>Total amount</center></th>
                 <th><center>action</center></th>
@@ -245,6 +249,24 @@ include_once('config.php');
 
     </select>  
                     </td>
+                    <td>
+                        <select name="make" id="make" style="width: 200px;" onchange="getitem();">
+        <option disabled selected value="0">Select make</option><br>
+        <?php
+        $query = "select id,make_name from make";
+        $query_process = mysqli_query($link,$query);
+        if(mysqli_num_rows($query_process)>0){
+            while($result = mysqli_fetch_assoc($query_process)){
+                 
+                ?>
+     <option value="<?php echo $result["type_id"];?>"><?php echo $result["make_name"];?></option>
+        <?php
+     
+        
+           }} ?>
+
+    </select>  
+                    </td>
                <td>
                 <select name="item"  style="width: 200px;" id="item-list" onChange="getCost(this.value);" >
         <option selected disabled value="0">Select item</option><br><br>
@@ -261,6 +283,7 @@ include_once('config.php');
             }}?>
          </select> 
                </td>
+
                
               <td><div id="reterap"><input type="text" name="rate" onchange="getText3()" id="rate" value="<?php '$cost' ?>"style="width: 120px;" ></td>
                 
@@ -273,8 +296,8 @@ include_once('config.php');
                     <button class="addrow" name="add" id="add" onclick="myFunction1();"><i class="fa fa-plus"></i></button>
                         </td>
                 </div>
-                    </tr>
                          <tr>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -283,6 +306,8 @@ include_once('config.php');
                             <td><input type="text" style="width: 100%;background-color: white"disabled="disabled" class="subtotal"  value="0" id="subtotal"></td>
                         </tr>
                         <td></td>
+                        
+                        <td></td>
                             <td></td>
                           <td></td>
                             <td class="text-right"><strong>H/W cost of material</strong></td>
@@ -290,6 +315,7 @@ include_once('config.php');
                             <td><input class="form-control" style="width: 100%;" id="hwcost" value="0" type="text"></td>
                         </tr>
                         <tr>
+                            <td></td>
                           <td></td>
                           <td></td>
                             <td></td>
@@ -300,6 +326,7 @@ include_once('config.php');
                             <td><input class="form-control"style="width: 100%;" id="labour"  type="text"></td>
                         </tr>
                         <td></td>
+                        <td></td>
                           <td></td>
                             <td></td>
                             
@@ -307,6 +334,7 @@ include_once('config.php');
                         <td><input class="form-control" style="width: 100%;" id="profit_perc" onchange="calc();" type="text"></td>
                             <td><input class="form-control" style="width: 100%;" id="profit" value="0" type="text"></td>
                         <tr>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -333,8 +361,21 @@ function getState(val) {
     $("#particulars-list").show();
     $.ajax({
     type: "POST",
-    url: "get-country-state-ep.php",
+    url: "make.php",
     data:'item_id='+val,
+    success: function(data){
+        $("#make").html(data);  
+    }
+    });
+}
+function getitem(val) {
+    var val= document.getElementById("make").value;
+    $("#make").show();
+    $.ajax({
+    type: "POST",
+    url: "get-country-state-ep.php",
+    data:'type_id='+val,
+
     success: function(data){
         console.log(data);
         $("#item-list").html(data);  
@@ -396,10 +437,11 @@ while(r<=count)
         
             board.push(cell_Value.innerHTML);
             var item_type=board[0];
-            var item_name=board[1];
-            var rate=board[2];
-            var qty=board[3];
-            var total=board[4];
+            var make=board[1];
+            var item_name=board[2];
+            var rate=board[3];
+            var qty=board[4];
+            var total=board[5];
                  
         }
    var name=document.getElementById("receipe_name").value; 
@@ -409,6 +451,7 @@ while(r<=count)
             data:{
                 name:name,
                 item_type:item_type,
+                make:make,
                 item_name:item_name,
                 rate:rate,
                 qty:qty,
@@ -480,9 +523,10 @@ document.getElementById("hwcost").value=res;
  function myFunction1() {
      var par=document.getElementById("particulars-list");
      var par1=document.getElementById("item-list");
+     var par11=document.getElementById("make");
      var par2=document.getElementById("rate").value;
      var par3=document.getElementById("quantity").value;
-     if(par.selectedIndex == 0 || par1.selectedIndex == 0|| par2 == 0|| par3 == 0)
+     if(par.selectedIndex == 0 ||par11.selectedIndex== 0|| par1.selectedIndex == 0|| par2 == 0|| par3 == 0)
      {
         alert("Please fill all fields");
      }
@@ -506,14 +550,16 @@ document.getElementById("hwcost").value=res;
      var cell4 = row.insertCell(3);
      var cell5 = row.insertCell(4);
      var cell6 = row.insertCell(5);
+     var cell7 = row.insertCell(6);
      row.insertCell(-1).textContent = "project";
      var lastRow = row;
      var lastCell = lastRow.cells[lastRow.cells.length - 1];
      cell2.innerHTML = ($("#particulars-list option:selected").text());
-     cell3.innerHTML = ($("#item-list option:selected").text());
-     cell4.innerHTML = cost;
-     cell5.innerHTML = qty;
-     cell6.innerHTML = sum;
+     cell3.innerHTML = ($("#make option:selected").text());
+     cell4.innerHTML = ($("#item-list option:selected").text());
+     cell5.innerHTML = cost;
+     cell6.innerHTML = qty;
+     cell7.innerHTML = sum;
      var j=parseInt(i);
      lastCell.innerHTML = "<button class='delete' onclick='remove(i--)'><i class='fa fa-times-circle'></i></button>";
      var par=document.getElementById("particulars-list"); par.selectedIndex =0;
@@ -537,14 +583,19 @@ document.getElementById("hwcost").value=res;
    }
 </script>
 <script>
+    window.onbeforeunload = function(){
+  return 'Are you sure you want to leave?';
+};
     function remove(i)
     { 
       var cell = document.getElementById("project").rows[i].cells;
-        var Total1 = project.rows[i].cells[5].innerHTML;
+        var Total1 = project.rows[i].cells[6].innerHTML;
+        
         var yes=confirm("are you sure you want to delete this entry?")
         if(yes && i>=2)
         {
         var subT=document.getElementById("subtotal").value;
+        
          subT=subT-Total1;  
         document.getElementById("project").deleteRow(i);
         document.getElementById("subtotal").value=subT;
