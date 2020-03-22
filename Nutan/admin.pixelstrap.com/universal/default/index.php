@@ -35,7 +35,9 @@ session_start();
 
     <!-- ico-font -->
     <link rel="stylesheet" type="text/css" href="../assets/css/icofont.css">
-
+    
+    <!-- breadcrum -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/breadcrum.css">
 
     <!-- Themify icon -->
     <link rel="stylesheet" type="text/css" href="../assets/css/themify.css">
@@ -69,8 +71,14 @@ session_start();
                 <a href="index.php">
                     <img src="../assets/images/final_logo2.png" style="height: 56px;" class="image-dark" alt=""/>
                 </a>
+
             </div>
+           
+
         </div>
+<ul class="breadcrumb">
+  <li>Home</li>
+</ul>
         <div class="main-header-right row">
             <div class="nav-right col">
                 <ul class="nav-menus">
@@ -108,7 +116,7 @@ session_start();
                                 </a>
                             </li>
                         </ul>
-                    </li>
+                    </li>   
                 </ul>
                 <div class="d-lg-none mobile-toggle">
                     <i class="icon-more"></i>
@@ -157,6 +165,30 @@ session_start();
         <div class="page-body"><br>
             <!-- Container-fluid starts -->
             <style type="text/css">
+
+/*.breadcrumb{
+    width: 1000px;
+    background-color:white; 
+    padding-top: 40px;
+}
+ ul.breadcrumb {
+  padding: 10x 16px;
+  list-style: none;
+  font-size: 15px;
+}
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black; 
+  content: "/\00a0";
+}
+ul.breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+ul.breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}*/
     #project
         {
         font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -221,14 +253,17 @@ session_start();
                 <td><?php echo $row['Date_Time'];?></td>
 
                 <td>
-                    <a href="switch_board.php" name="add"<?php {$_SESSION["id"] = $row['id'];} ?> class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add Recipe" style="padding: 7px;">
+                    <a href="switch_board.php?id=<?php echo $row['id'];?>" name="add"<?php {$_SESSION["id"] = $row['id'];} ?> class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Add Recipe" style="padding: 5px;">
                         <i class="fa fa-plus"></i></a>
-                           <a href="Recipes_and_sb.php?id=<?php echo $row['id'];?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="edit Receipe" style="padding: 7px;">
+                           <a href="Recipes_and_sb.php?id=<?php echo $row['id'];?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="edit Receipe" style="padding: 5px;">
                            <i class="fa fa-edit"></i></a>   
-                        <a href="delete.php?id=<?php echo $row['id'];?>"onclick="return confirm('Are you sure to delete project?')"class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Delete project" style="padding: 7px;">
+                        <a href="delete.php?id=<?php echo $row['id'];?>"onclick="return confirm('Are you sure to delete project?')"class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Delete project" style="padding: 5px;">
                         <i class="fa fa-trash"></i></a>
-                        <a href="view_project.php?id=<?php echo $row['id'];?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View details" <?php $id = $row['id']; ?> style="padding: 7px;" >
+                        <a href="view_project.php?id=<?php echo $row['id'];?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View details" <?php $id = $row['id']; ?> style="padding: 5px;" >
                         <i class="fa fa-eye"></i></a>
+                        <a href="invoice.php?id=<?php echo $row['id'];?>" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="make bill" <?php $id = $row['id']; ?> style="padding: 5px;" >
+                        <i class="fa fa-file"></i></a>
+
                     
                         
                 </td>
