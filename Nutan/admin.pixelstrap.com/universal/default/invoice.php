@@ -44,10 +44,11 @@ $id=$_GET["id"];
                 <style>
  .project
         {
+
         font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
         border-collapse: collapse;
         width: 90%;
-        margin-left: 25px;
+        margin-left:40px;
         }
     .project td, .project th 
         {
@@ -67,50 +68,125 @@ $id=$_GET["id"];
     
 </style>
 <?php
-$query="SELECT sb_name,id FROM sb WHERE p_id='".$id."'";
+$pid=$_GET["id"]; 
+$queryp="SELECT *FROM project Where id='".$pid."' ";
+$query_processp= mysqli_query($link,$queryp);
+        if(mysqli_num_rows($query_processp)>0){
+            while($resultp = mysqli_fetch_assoc($query_processp)){
+
+
+ ?>
+<div class="container">
+
+    <a href="material.php?id=<?php echo $id ;?>"class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="material list " style="padding: 10px; margin-left: 92%">
+                      <i class="fa fa-list"></i></a>
+    <a href="pdf.php?id=<?php echo $id ;?>"class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="print pdf " style="padding: 10px; margin-left: 0%">
+                      <i class="fa fa-file pdf"></i></a>
+    
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <hr>
+                <div class="row">
+                    <div class="col-xs-6 col-md-6">
+                        <address>
+                            <strong>Billed To:</strong><br>
+                            <?php echo $resultp["project_name"]; ?><br>
+                        </address>
+                    </div>
+                    <div class="col-xs-6 col-md-6 text-right">
+                        <address>
+                            <strong>Shipped To:</strong><br>
+                            <?php echo $resultp["address"]; ?><br>
+                        </address>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-md-6">
+                        <address>
+                            <strong>Developer:</strong><br>
+                            <?php echo $resultp["developer"]; ?><br><br>
+                            
+                        </address>
+                    </div>
+                    <div class="col-xs-6 col-md-6 text-right">
+                        <address>
+                            <strong>Order Date:</strong><br>
+                            <?php echo $resultp["Date_Time"]; ?><br><br><br>
+                            
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<?php
+$grand_total=0; 
+}}
+$query="SELECT sbid FROM project_details WHERE pid='".$id."'";
 $query_process = mysqli_query($link,$query);
         if(mysqli_num_rows($query_process)>0){
             while($result = mysqli_fetch_assoc($query_process)){
-                $sb_id=$result["id"];
-                
- ?>         <tr>
-            <th> <?php echo $result["sb_name"]; ?></th>
-            </tr>
-<?php  
-
-$query1="SELECT receipe_name,receipe_id FROM sb_details WHERE sb_id='".$sb_id."'";
+                $sb_id=$result["sbid"];
+          
+            
+$query1="SELECT sb_name,total FROM sb WHERE id='".$sb_id."'";
 $query_process1 = mysqli_query($link,$query1);
         if(mysqli_num_rows($query_process1)>0){
             while($result1 = mysqli_fetch_assoc($query_process1)){
- ?>
-            <th> <?php echo $result1["receipe_name"]; ?></th>
-                <tr>
-                <th>item_type</th>
-                <th>make</th>
-                <th>item_name</th>
-                <th>rate</th>
-                <th>quantity</th>
-                <th>total</th>
+                $sb_name=$result1["sb_name"];
+                $total=$result1["total"]
+                
+ ?>         <tr>
+            <th> <?php echo $result1["sb_name"]; ?></th> 
             </tr>
-<?php
-$id_id=$result1["receipe_id"];
+<?php  
 
-$query2="SELECT  `item_type`, `make`, `item_name`, `rate`, `quantity`, `total` FROM `receipe_details`  WHERE receipe_id='".$id_id."'";
-$query_process2 = mysqli_query($link,$query2);
-        if(mysqli_num_rows($query_process2)>0){
-            while($result2 = mysqli_fetch_assoc($query_process2)){
- ?>
-            <tr>
-                <th><?php echo $result2["item_type"]; ?></th>
-                <th><?php echo $result2["make"]; ?></th>
-                <th><?php echo $result2["item_name"]; ?></th>
-                <th><?php echo $result2["rate"]; ?></th>
-                <th><?php echo $result2["quantity"]; ?></th>
-                <th><?php echo $result2["total"]; ?></th>
-            </tr>
+                                                                            
+                                            
+$query12="SELECT receipe_name,receipe_id,quantity,total FROM sb_details WHERE sb_id='".$sb_id."'";
+$query_process12 = mysqli_query($link,$query12);
+        if(mysqli_num_rows($query_process12)>0){
+            while($result12 = mysqli_fetch_assoc($query_process12)){
+          $count = $result12["quantity"]
+                
+          ?>
+          <tr>
+            <th> <?php echo $result12["receipe_name"]; ?></th>
+            <th>Quantity-<?php echo $count ?> </th>
+            <th><?php echo $result12["total"] ?></th>
+              </tr>  
+
 
 <?php
-} } } } } }  ?>
+
+
+$query3="SELECT  total FROM `sb`  WHERE id='".$sb_id."'";
+$query_process3 = mysqli_query($link,$query3);
+
+        if(mysqli_num_rows($query_process3)>0){
+            while($result3 = mysqli_fetch_assoc($query_process3)){
+ ?>
+                <?php 
+                 $grand_total=$grand_total+$result12["total"];
+                 $grand_total1= number_format($grand_total)
+                  
+
+                ?>           
+
+<?php
+           }}   
+           }
+       }
+   }
+           }   } }                                               
+             
+               ?>
+        <tr>
+                <th></th> 
+                <th>Grand total</th>
+                <th><?php echo $grand_total; ?></th>
+                           
+            </tr>
 </table>
 </div>
     </head>
