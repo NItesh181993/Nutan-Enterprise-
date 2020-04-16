@@ -2,6 +2,13 @@
 session_start();
 include_once('config.php');
 $p_id=$_GET["id"];
+$query="SELECT *FROM project where id='".$p_id."'";
+$mysqli_query= mysqli_query($link,$query);
+       // echo $query1;
+        if (mysqli_num_rows($mysqli_query)>0) {
+            while ($row1 = mysqli_fetch_assoc($mysqli_query)) {
+              $name=$row1['project_name'];                          
+}}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +59,7 @@ $p_id=$_GET["id"];
         </div>
              <ul class="breadcrumb">
   <li><a href="index.php">Home</a></li>
-  <li>Add receipe</li>
+  <li>Add switch board</li>
 </ul>
         <div class="main-header-right row">
             <div class="nav-right col">
@@ -108,6 +115,10 @@ $p_id=$_GET["id"];
                     <a href="Create_project.php" class="sidebar-header">
                         <i class="icon-desktop"></i><span>Create New Project</span>
                     </a>
+                    <a href="exist.php" class="sidebar-header">
+                        <i class="icon-desktop"></i><span>List of switch boards</span>
+                    </a>
+                    
                     <a href="list_receipe.php" class="sidebar-header">
                         <i class="icon-desktop"></i><span>List of Recipes</span>    
                     </a>
@@ -169,7 +180,10 @@ $p_id=$_GET["id"];
             width: 100%;
             }
             </style>
-                        
+            
+                    <a href="exist.php?id=<?php echo $p_id?>" style="margin-right: 10;margin-top:0px;font-size: 18px">Add existing switch board</a> 
+
+                    <a href="project_sb.php?id=<?php echo $p_id?>" style="margin-left: 49%; margin-top:0px;font-size: 18px">List of switch board for project-</a> 
             <div class="container">
                 <label>Please enter switch board name</label><br>
                 <input type="text" id="sb_name"name="sb_name" >
@@ -428,7 +442,7 @@ while(r<=count)
             var total=board[3];
                  
         }
-        var p_id =<?php echo $p_id ?>;
+        var p_id ="<?php echo $p_id ?>";
    var name=document.getElementById("sb_name").value; 
    var grandTotal=document.getElementById("grandTotal").innerHTML;
         $.ajax({ type: "POST",
@@ -443,19 +457,47 @@ while(r<=count)
                 gtotal:grandTotal 
                         },
                 success: function(data){
-                    console.log(data)
-                    window.location.reload();
+                    console.log(data);
+                    // window.location.reload();
                            }
             });
         r++; 
-        }
-         alert("receipe added succesfully");
     }
+        }
+        var total1=total;
+        $.ajax({ type: "POST",
+            url: "test2_sb.php",
+            data:{
+                pid:p_id,
+                name:name,
+                total:total1
+                },
+                success: function(data){
+                    console.log(data)
+                    
+                           }
+            });
+        $.ajax({ type: "POST",
+            url: "test3_sb.php",
+            data:{
+                // pid:p_id,
+                name:name,
+                // receipe:receipe,
+                // rate:cost,
+                // qty:quantity,
+                // total:total,
+                // gtotal:grandTotal 
+                        },
+                success: function(data){
+                    console.log(data);
+                    // window.location.reload();
+                           }
+            });
+        
+         alert("receipe added succesfully");
+        
+             }
 }
-}
-
-
-
 
   function calc()
   {
@@ -499,9 +541,9 @@ document.getElementById("hwcost").value=res;
    }
 // </script>
  <script>
-    window.onbeforeunload = function(){
-  return 'Are you sure you want to leave?';
-};
+    <!-- window.onbeforeunload = function(){ -->
+  // return 'Are you sure you want to leave?';
+// };
     function remove(i)
     { 
       var cell = document.getElementById("project").rows[i].cells;
